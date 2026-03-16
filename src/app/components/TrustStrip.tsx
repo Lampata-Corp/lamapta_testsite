@@ -4,6 +4,7 @@ import { partnerLogos } from "../content/siteContent";
 import esaSiteLogo from "../../assets/logos/esa-site-logo.svg";
 import esaTitleLogo from "../../assets/logos/esa-title-logo.svg";
 import ogcSiteLogo from "../../assets/logos/ogc-site-logo.svg";
+import pangeoLogo from "../../assets/logos/pangeo-logo.png";
 import { cn } from "./ui/utils";
 
 interface TrustStripProps {
@@ -22,7 +23,7 @@ export function TrustStrip({ className }: TrustStripProps) {
       transition={{ duration: 0.45 }}
       className={cn("flex flex-wrap items-center gap-x-4 gap-y-2.5 lg:flex-nowrap", className)}
     >
-      <p className="font-brand text-[1.45rem] font-bold uppercase leading-none tracking-[-0.06em] text-[#00458b] sm:text-[1.55rem]">
+      <p className="font-brand whitespace-nowrap text-[1.45rem] font-bold uppercase leading-none tracking-[-0.06em] text-[#00458b] sm:text-[1.55rem]">
         Trusted <span className="brand-gold-text">By:</span>
       </p>
 
@@ -50,12 +51,21 @@ export function TrustStrip({ className }: TrustStripProps) {
                 loading="lazy"
               />
             </div>
-          ) : (
+          ) : partner.id === "ogc" ? (
             <div className="flex h-[4.8rem] w-[10.75rem] items-center justify-center sm:h-[5rem] sm:w-[11.5rem]">
               <img
                 src={ogcSiteLogo}
                 alt={partner.label}
                 className="h-8 w-auto object-contain [filter:brightness(0)_saturate(100%)_invert(16%)_sepia(88%)_saturate(2410%)_hue-rotate(197deg)_brightness(93%)_contrast(102%)] sm:h-9"
+                loading="lazy"
+              />
+            </div>
+          ) : (
+            <div className="flex h-[4.8rem] w-[10.75rem] items-center justify-center sm:h-[5rem] sm:w-[11.5rem]">
+              <img
+                src={pangeoLogo}
+                alt={partner.label}
+                className="h-8.5 w-auto object-contain sm:h-9.5"
                 loading="lazy"
               />
             </div>

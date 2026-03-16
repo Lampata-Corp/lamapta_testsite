@@ -1,15 +1,11 @@
 # note to self  todo
-- ask it to follow the invisible elipse
-OK simplify what you've done, I've created an elipse in the svg that's got an opacity of 0. you should just follow the borders of it 
 
 - create the image stack thing
 ----epic
 
 - change the copy on the site
 
-
 - real case studies
-
 
 - pss in the presentation from v2 to tweak content
 

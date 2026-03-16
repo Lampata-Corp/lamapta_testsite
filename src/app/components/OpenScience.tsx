@@ -1,5 +1,5 @@
 import { motion, useInView } from "motion/react";
-import { FlaskConical, GitBranch, Globe2, Workflow } from "lucide-react";
+import { ArrowUpRight, FlaskConical, GitBranch, Globe2, Workflow } from "lucide-react";
 import { useRef } from "react";
 import { openScienceItems } from "../content/siteContent";
 import { SectionIntro } from "./SectionIntro";
@@ -62,6 +62,14 @@ export function OpenScience() {
                 </div>
               ))}
             </div>
+
+            <a
+              href="/earth-observation-tech-radar/"
+              className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[#00458b] transition-opacity hover:opacity-72"
+            >
+              Explore the Earth Observation Tech Radar
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
           </motion.div>
 
           <div className="grid gap-6 sm:grid-cols-2">

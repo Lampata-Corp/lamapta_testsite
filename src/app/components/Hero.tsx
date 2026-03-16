@@ -18,7 +18,7 @@ export function Hero() {
             className="font-display text-balance leading-[0.94] tracking-[-0.08em] text-[#00458b]"
             style={{ fontSize: "clamp(2.8rem, 6vw, 5.5rem)" }}
           >
-            Turn geo-spatial data into intelligence people actually use.
+            From Data to Intelligence.
           </motion.h1>
 
           <motion.p

@@ -10,7 +10,7 @@ export interface HeroMetric {
 }
 
 export interface PartnerLogo {
-  id: "esa" | "ogc";
+  id: "esa" | "ogc" | "pangeo";
   label: string;
 }
 
@@ -64,11 +64,51 @@ export interface ProcessStep {
   deliverable: string;
 }
 
+export interface TrainingTrack {
+  title: string;
+  purpose: string;
+  audience: string;
+  topics: string[];
+}
+
+export interface TrainingFormat {
+  title: string;
+  description: string;
+  note: string;
+}
+
+export interface TrainingVideo {
+  title: string;
+  source: string;
+  url: string;
+  youtubeId: string;
+  date: string;
+  summary: string;
+}
+
+export interface TrainingEvent {
+  title: string;
+  date: string;
+  format: string;
+  status: "upcoming" | "past";
+  link?: string;
+}
+
+export interface TrainingComingSoonCourse {
+  label: string;
+  title: string;
+  summary: string;
+  audience: string;
+  format: string;
+  focusAreas: string[];
+}
+
 export const navItems: NavItem[] = [
-  { label: "Who We Work With", href: "#who-we-work-with" },
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "Research", href: "#open-science" },
-  { label: "Contact", href: "#contact" },
+  { label: "Who We Work With", href: "/#who-we-work-with" },
+  { label: "Case Studies", href: "/#case-studies" },
+  { label: "Research", href: "/#open-science" },
+  { label: "Teaching", href: "/training/" },
+  { label: "Tech Radar", href: "/earth-observation-tech-radar/" },
 ];
 
 export const heroProofPoints = [
@@ -113,6 +153,10 @@ export const partnerLogos: PartnerLogo[] = [
   {
     id: "ogc",
     label: "Open Geospatial Consortium",
+  },
+  {
+    id: "pangeo",
+    label: "Pangeo",
   },
 ];
 
@@ -362,3 +406,149 @@ export const contactChecklist = [
   "What data you already have access to and what remains uncertain",
   "Whether you need a prototype, a production workflow, or an expert audit",
 ];
+
+export const trainingTracks: TrainingTrack[] = [
+  {
+    title: "Earth Observation Foundations",
+    purpose:
+      "Build a practical grounding in earth observation data, sensors, formats, and analysis choices before teams move into delivery work.",
+    audience: "For analysts, researchers, and technical teams entering EO workflows.",
+    topics: [
+      "Mission types, sensor tradeoffs, and spatial-temporal resolution",
+      "Raster and vector fundamentals for analysis-ready workflows",
+      "Data quality, cloud masking, and uncertainty-aware interpretation",
+      "Working with EO outputs in decision support contexts",
+    ],
+  },
+  {
+    title: "Geo-spatial AI & ML Workflows",
+    purpose:
+      "Show how machine learning actually fits into remote sensing production, from labelled data to model review and operational outputs.",
+    audience: "For ML practitioners, data scientists, and remote sensing teams building models.",
+    topics: [
+      "Training data design for detection, segmentation, and change workflows",
+      "Evaluation patterns for geo-spatial models and analyst trust",
+      "Model error analysis with map-based review loops",
+      "Packaging inference outputs for downstream products and teams",
+    ],
+  },
+  {
+    title: "FAIR, Open Science & EarthCODE",
+    purpose:
+      "Teach teams how to turn exploratory EO work into reproducible, FAIR, and shareable science and engineering outputs.",
+    audience: "For research groups, open-science practitioners, and public-interest programs.",
+    topics: [
+      "FAIR principles in applied geo-spatial projects",
+      "EarthCODE workflows, reproducibility, and reusable artifacts",
+      "Publishing code, methods, and metadata for reuse",
+      "Open-science patterns that support institutional adoption",
+    ],
+  },
+  {
+    title: "Cloud-Native Geo-spatial Delivery",
+    purpose:
+      "Bridge the gap between prototypes and production with delivery patterns suited to modern geo-spatial infrastructure.",
+    audience: "For engineering teams operationalizing EO or geo-spatial intelligence products.",
+    topics: [
+      "Cloud-native storage and access patterns for geo-spatial data",
+      "Batch and near-real-time pipeline design",
+      "Serving analysis outputs through APIs, dashboards, or internal tools",
+      "Operational handoff, governance, and support readiness",
+    ],
+  },
+];
+
+export const trainingFormats: TrainingFormat[] = [
+  {
+    title: "Private team workshops",
+    description:
+      "Focused sessions for a single organization, tailored to the data, tools, and decisions your team actually works with.",
+    note: "Best for in-house capability building and project kickoffs.",
+  },
+  {
+    title: "Live online training",
+    description:
+      "Remote delivery for distributed teams, with hands-on walkthroughs, Q&A, and practical examples drawn from earth observation work.",
+    note: "Best for mixed technical audiences across locations.",
+  },
+  {
+    title: "Tailored training programs",
+    description:
+      "Multi-session programs designed around a curriculum arc, from foundations through delivery and adoption.",
+    note: "Best for teams moving from research into repeatable delivery.",
+  },
+];
+
+export const trainingVideos: TrainingVideo[] = [
+  {
+    title: "FAIR and Open Science in Action An Introduction to EarthCODE - BiDS'25",
+    source: "Big Data From Space",
+    url: "https://www.youtube.com/watch?v=sLcdFd_iTLg",
+    youtubeId: "sLcdFd_iTLg",
+    date: "January 30, 2026",
+    summary:
+      "An introductory session on EarthCODE, FAIR principles, and reproducible Earth observation workflows for teams building open, reusable methods.",
+  },
+  {
+    title: "FAIR and Open Science for Earth Sciences with ESA EarthCODE",
+    source: "FOSS4G:UK",
+    url: "https://www.youtube.com/watch?v=lqIPHpNGL2U",
+    youtubeId: "lqIPHpNGL2U",
+    date: "October 9, 2025",
+    summary:
+      "A practical talk on ESA EarthCODE and the open-science patterns that support reproducible Earth science delivery beyond one-off pilots.",
+  },
+];
+
+export const trainingEvents: TrainingEvent[] = [
+  {
+    title: "Earth Observation Open Science Bootcamp",
+    date: "September 17, 2026",
+    format: "Virtual live workshop",
+    status: "upcoming",
+    link: "#request-training",
+  },
+  {
+    title: "Geo-spatial AI for Sustainability Teams",
+    date: "November 12, 2026",
+    format: "Cambridge, UK + online",
+    status: "upcoming",
+    link: "#request-training",
+  },
+  {
+    title: "FAIR and Open Science in Action: Introduction to EarthCODE",
+    date: "January 30, 2026",
+    format: "BiDS'25 conference session",
+    status: "past",
+    link: "https://www.youtube.com/watch?v=sLcdFd_iTLg",
+  },
+  {
+    title: "FAIR and Open Science for Earth Sciences with ESA EarthCODE",
+    date: "October 9, 2025",
+    format: "FOSS4G:UK, Leeds",
+    status: "past",
+    link: "https://www.youtube.com/watch?v=lqIPHpNGL2U",
+  },
+  {
+    title: "Reproducible EO Workflows for Research Teams",
+    date: "June 12, 2025",
+    format: "Private team workshop, Cambridge",
+    status: "past",
+  },
+];
+
+export const trainingComingSoonCourse: TrainingComingSoonCourse = {
+  label: "Coming soon",
+  title: "Comprehensive Geo-spatial Course",
+  summary:
+    "Lampata is developing a deeper course focused on modern GIS, geo-spatial workflows, and earth observation tooling for data science and analysis teams.",
+  audience:
+    "Designed for analysts, researchers, and technical teams who want a fuller learning path than a single workshop can provide.",
+  format: "Planned as a structured multi-session course with practical examples and applied exercises.",
+  focusAreas: [
+    "Modern GIS foundations for analysis and delivery",
+    "Geo-spatial data science workflows and practical tooling",
+    "Earth observation data, methods, and interpretation",
+    "Applied analysis patterns for real project work",
+  ],
+};
