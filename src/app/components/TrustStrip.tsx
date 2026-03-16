@@ -22,8 +22,8 @@ export function TrustStrip({ className }: TrustStripProps) {
       transition={{ duration: 0.45 }}
       className={cn("flex flex-wrap items-center gap-x-4 gap-y-2.5 lg:flex-nowrap", className)}
     >
-      <p className="font-brand text-[1.45rem] font-bold uppercase leading-none tracking-[-0.06em] text-[#00448b] sm:text-[1.55rem]">
-        Trusted <span className="text-[#c6a34a]">By:</span>
+      <p className="font-brand text-[1.45rem] font-bold uppercase leading-none tracking-[-0.06em] text-[#00458b] sm:text-[1.55rem]">
+        Trusted <span className="text-[#f5d704]">By:</span>
       </p>
 
       {partnerLogos.map((partner, index) => (

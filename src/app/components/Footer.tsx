@@ -6,12 +6,12 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[#0f2745]/8 bg-white">
+    <footer className="border-t border-[#00458b]/8 bg-white">
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <div className="max-w-xl">
-            <BrandMark className="mb-5 w-[19rem] sm:w-[24rem]" showTagline />
-            <p className="text-base leading-7 text-slate-600">
+            <BrandMark className="mb-5 w-[22rem] sm:w-[27rem]" />
+            <p className="text-base leading-7 text-[#00458b]/76">
               We help teams turn geo-spatial data into decision-ready intelligence using
               earth observation, open-science methods, and production-minded engineering.
             </p>
@@ -25,7 +25,7 @@ export function Footer() {
                   <a
                     key={item.label}
                     href={item.href}
-                    className="text-slate-700 transition-colors hover:text-[#00448b]"
+                    className="text-[#00458b]/84 transition-colors hover:text-[#00458b]"
                   >
                     {item.label}
                   </a>
@@ -37,12 +37,12 @@ export function Footer() {
               <p className="section-eyebrow mb-4">Start with a problem statement</p>
               <a
                 href="mailto:contact@lampata.com"
-                className="inline-flex items-center gap-2 text-lg text-slate-950 transition-colors hover:text-[#00448b]"
+                className="inline-flex items-center gap-2 text-lg text-[#00458b] transition-colors hover:text-[#00458b]/80"
               >
                 contact@lampata.com
                 <ArrowUpRight className="h-4 w-4" />
               </a>
-              <p className="mt-4 text-sm leading-6 text-slate-500">
+              <p className="mt-4 text-sm leading-6 text-[#00458b]/62">
                 A concise note about the decision, data, and timeline is enough for a first
                 conversation.
               </p>
@@ -50,11 +50,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-[#0f2745]/8 pt-6 md:flex-row md:items-center md:justify-between">
-          <p className="text-sm text-slate-500">
+        <div className="mt-10 flex flex-col gap-3 border-t border-[#00458b]/8 pt-6 md:flex-row md:items-center md:justify-between">
+          <p className="text-sm text-[#00458b]/62">
             © {currentYear} Lampata. All rights reserved.
           </p>
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-[#00458b]/62">
             Built for light, credible storytelling around geo-spatial research and engineering.
           </p>
         </div>

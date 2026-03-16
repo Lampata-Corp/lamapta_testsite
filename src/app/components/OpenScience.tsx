@@ -32,10 +32,10 @@ export function OpenScience() {
             className="panel-surface rounded-[2rem] p-6"
           >
             <p className="section-eyebrow mb-4">What teams receive</p>
-            <h3 className="font-display text-3xl leading-tight tracking-[-0.06em] text-slate-950">
+            <h3 className="font-display text-3xl leading-tight tracking-[-0.06em] text-[#00458b]">
               Work that can survive scrutiny after the prototype phase.
             </h3>
-            <p className="mt-5 text-sm leading-7 text-slate-600">
+            <p className="mt-5 text-sm leading-7 text-[#00458b]/76">
               That usually means more than a model output. It means documented data choices,
               evaluation notes, reusable code paths, and a handoff that does not force your
               team to reverse engineer the logic later.
@@ -50,7 +50,7 @@ export function OpenScience() {
               ].map((item) => (
                 <div
                   key={item}
-                  className="rounded-[1.1rem] border border-[#0f2745]/8 bg-white/85 px-4 py-3 text-sm text-slate-600"
+                  className="rounded-[1.1rem] border border-[#00458b]/8 bg-white/85 px-4 py-3 text-sm text-[#00458b]/76"
                 >
                   {item}
                 </div>
@@ -70,18 +70,18 @@ export function OpenScience() {
                   transition={{ duration: 0.45, delay: index * 0.08 }}
                   className="panel-surface rounded-[1.8rem] p-6"
                 >
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#00448b]/8 text-[#00448b]">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#00458b]/8 text-[#00458b]">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="font-display text-2xl leading-tight tracking-[-0.05em] text-slate-950">
+                  <h3 className="font-display text-2xl leading-tight tracking-[-0.05em] text-[#00458b]">
                     {item.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-7 text-slate-600">{item.description}</p>
+                  <p className="mt-4 text-sm leading-7 text-[#00458b]/76">{item.description}</p>
                   <div className="mt-6 flex flex-wrap gap-2">
                     {item.details.map((detail) => (
                       <span
                         key={detail}
-                        className="rounded-full bg-[#00448b]/6 px-3 py-1 text-xs text-slate-600"
+                        className="rounded-full bg-[#00458b]/6 px-3 py-1 text-xs text-[#00458b]/76"
                       >
                         {detail}
                       </span>

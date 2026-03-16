@@ -24,7 +24,7 @@ export function FeaturedOutcomes() {
               initial={{ opacity: 0, y: 18 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              className="overflow-hidden rounded-[1.8rem] border border-[#00448b]/10 bg-white shadow-[0_26px_60px_-46px_rgba(0,68,139,0.3)]"
+              className="overflow-hidden rounded-[1.8rem] border border-[#00458b]/10 bg-white shadow-[0_26px_60px_-46px_rgba(0,69,139,0.22)]"
             >
               <ImageWithFallback
                 src={story.image}
@@ -34,28 +34,28 @@ export function FeaturedOutcomes() {
 
               <div className="p-6">
                 <p className="section-eyebrow mb-3">{story.context}</p>
-                <h3 className="font-display text-3xl leading-tight tracking-[-0.06em] text-slate-950">
+                <h3 className="font-display text-3xl leading-tight tracking-[-0.06em] text-[#00458b]">
                   {story.title}
                 </h3>
 
                 <div className="mt-6 space-y-5">
                   <div>
-                    <p className="text-xs uppercase tracking-[0.24em] text-[#00448b]/72">
+                    <p className="text-xs uppercase tracking-[0.24em] text-[#00458b]/72">
                       Challenge
                     </p>
-                    <p className="mt-2 text-sm leading-7 text-slate-600">{story.challenge}</p>
+                    <p className="mt-2 text-sm leading-7 text-[#00458b]/76">{story.challenge}</p>
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-[0.24em] text-[#00448b]/72">
+                    <p className="text-xs uppercase tracking-[0.24em] text-[#00458b]/72">
                       Approach
                     </p>
-                    <p className="mt-2 text-sm leading-7 text-slate-600">{story.approach}</p>
+                    <p className="mt-2 text-sm leading-7 text-[#00458b]/76">{story.approach}</p>
                   </div>
-                  <div className="border-l-4 border-[#c6a34a] bg-[#fff8df] px-4 py-4">
-                    <p className="text-xs uppercase tracking-[0.24em] text-[#8b6b1f]">
+                  <div className="border-l-4 border-[#f5d704] bg-[#f5d704]/10 px-4 py-4">
+                    <p className="text-xs uppercase tracking-[0.24em] text-[#00458b]">
                       Outcome
                     </p>
-                    <p className="mt-2 text-sm leading-7 text-slate-700">{story.outcome}</p>
+                    <p className="mt-2 text-sm leading-7 text-[#00458b]/84">{story.outcome}</p>
                   </div>
                 </div>
 
@@ -63,7 +63,7 @@ export function FeaturedOutcomes() {
                   {story.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-[#00448b]/6 px-3 py-1 text-xs text-slate-600"
+                      className="rounded-full bg-[#00458b]/6 px-3 py-1 text-xs text-[#00458b]/76"
                     >
                       {tag}
                     </span>

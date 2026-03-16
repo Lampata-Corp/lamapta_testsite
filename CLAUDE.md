@@ -20,8 +20,12 @@ This is a single-page marketing site exported from Figma, built with Vite + Reac
 - [src/main.tsx](src/main.tsx) — mounts the React app
 - [src/app/App.tsx](src/app/App.tsx) — composes all page sections in order: `Header → Hero → AudienceSection → Capabilities → FeaturedOutcomes → OpenScience → HowWeWork → Contact → Footer`
 
+**Content layer:**
+- [src/app/content/siteContent.ts](src/app/content/siteContent.ts) — all site copy, images, metrics, and data arrays with TypeScript interfaces. Update text here rather than in components.
+
 **Component layers:**
 - [src/app/components/](src/app/components/) — page section components (one file per section)
+- [src/app/components/SectionIntro.tsx](src/app/components/SectionIntro.tsx) — shared eyebrow/title/description header used across most sections; accepts `eyebrow`, `title`, `description`, and optional `align` prop
 - [src/app/components/ui/](src/app/components/ui/) — shadcn/ui primitives built on Radix UI; do not edit these unless fixing a bug
 - [src/app/components/figma/](src/app/components/figma/) — Figma-specific helpers (e.g. `ImageWithFallback`)
 

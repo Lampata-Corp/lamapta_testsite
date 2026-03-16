@@ -22,7 +22,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.08 }}
-            className="font-display text-balance text-5xl leading-[0.96] tracking-[-0.08em] text-slate-950 sm:text-6xl lg:text-7xl"
+            className="font-display text-balance text-5xl leading-[0.96] tracking-[-0.08em] text-[#00458b] sm:text-6xl lg:text-7xl"
           >
             Turn complex geo-spatial data into intelligence people can actually use.
           </motion.h1>
@@ -31,7 +31,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.16 }}
-            className="mt-7 text-lg leading-8 text-slate-600 md:text-xl"
+            className="mt-7 text-lg leading-8 text-[#00458b]/76 md:text-xl"
           >
             Lampata helps space agencies, research institutions, sustainability
             analysts, and enterprises work with satellite imagery, aerial footage,
@@ -47,14 +47,14 @@ export function Hero() {
           >
             <a
               href="#contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#00448b] px-6 py-3.5 text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#00356d]"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#00458b] px-6 py-3.5 text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#00458b]/90"
             >
               Start a conversation
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
               href="#featured-outcomes"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#00448b]/16 bg-white px-6 py-3.5 text-slate-900 transition-colors duration-200 hover:border-[#00448b] hover:text-[#00448b]"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#00458b]/16 bg-white px-6 py-3.5 text-[#00458b] transition-colors duration-200 hover:border-[#00458b] hover:bg-[#f5d704]/10"
             >
               View featured work
             </a>
@@ -67,14 +67,14 @@ export function Hero() {
             className="mt-10 space-y-3"
           >
             {heroProofPoints.map((point) => (
-              <div key={point} className="flex items-start gap-3 text-slate-600">
-                <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[#00448b]" />
+              <div key={point} className="flex items-start gap-3 text-[#00458b]/76">
+                <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[#00458b]" />
                 <p className="text-sm leading-7 md:text-base">{point}</p>
               </div>
             ))}
           </motion.div>
 
-          <TrustStrip className="mt-10 border-t border-[#0f2745]/8 pt-6" />
+          <TrustStrip className="mt-10 border-t border-[#00458b]/8 pt-6" />
         </div>
 
         <motion.div
@@ -83,7 +83,7 @@ export function Hero() {
           transition={{ duration: 0.65, delay: 0.2 }}
           className="relative"
         >
-          <div className="overflow-hidden rounded-[2rem] border border-[#00448b]/10 bg-white shadow-[0_30px_80px_-42px_rgba(0,68,139,0.45)]">
+          <div className="overflow-hidden rounded-[2rem] border border-[#00458b]/10 bg-white shadow-[0_30px_80px_-42px_rgba(0,69,139,0.32)]">
             <ImageWithFallback
               src={heroImages.primary}
               alt="Satellite earth observation imagery"
@@ -91,20 +91,20 @@ export function Hero() {
             />
           </div>
 
-          <div className="absolute bottom-5 right-5 rounded-[1.4rem] bg-white/95 p-4 shadow-[0_24px_55px_-34px_rgba(0,68,139,0.55)] backdrop-blur">
+          <div className="absolute bottom-5 right-5 rounded-[1.4rem] bg-white/95 p-4 shadow-[0_24px_55px_-34px_rgba(0,69,139,0.34)] backdrop-blur">
             <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
               {heroMetrics.map((metric) => (
                 <div key={metric.label} className="min-w-[9rem]">
-                  <p className="text-[0.7rem] uppercase tracking-[0.24em] text-[#00448b]/72">
+                  <p className="text-[0.7rem] uppercase tracking-[0.24em] text-[#00458b]/72">
                     {metric.label}
                   </p>
-                  <p className="mt-2 text-sm font-semibold text-slate-950">{metric.value}</p>
+                  <p className="mt-2 text-sm font-semibold text-[#00458b]">{metric.value}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="absolute -bottom-10 left-6 hidden w-[42%] overflow-hidden rounded-[1.5rem] border-4 border-white shadow-[0_26px_55px_-34px_rgba(0,68,139,0.55)] md:block">
+          <div className="absolute -bottom-10 left-6 hidden w-[42%] overflow-hidden rounded-[1.5rem] border-4 border-white shadow-[0_26px_55px_-34px_rgba(0,69,139,0.34)] md:block">
             <ImageWithFallback
               src={heroImages.secondary}
               alt="Geo-spatial data visualization"

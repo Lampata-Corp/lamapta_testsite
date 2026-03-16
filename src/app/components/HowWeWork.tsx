@@ -26,22 +26,22 @@ export function HowWeWork() {
               className="panel-surface rounded-[1.9rem] p-6"
             >
               <div className="flex items-center justify-between">
-                <span className="font-display text-4xl tracking-[-0.08em] text-[#00448b]/18">
+                <span className="font-display text-4xl tracking-[-0.08em] text-[#00458b]/18">
                   {step.step}
                 </span>
-                <span className="rounded-full bg-[#00448b]/8 px-3 py-1 text-xs text-[#00448b]">
+                <span className="rounded-full bg-[#f5d704]/18 px-3 py-1 text-xs text-[#00458b]">
                   {step.title}
                 </span>
               </div>
-              <p className="font-display mt-6 text-2xl tracking-[-0.05em] text-slate-950">
+              <p className="font-display mt-6 text-2xl tracking-[-0.05em] text-[#00458b]">
                 {step.title}
               </p>
-              <p className="mt-4 text-sm leading-7 text-slate-600">{step.description}</p>
-              <div className="mt-6 rounded-[1.2rem] border border-[#0f2745]/8 bg-white/85 p-4">
-                <p className="text-xs uppercase tracking-[0.24em] text-slate-500">
+              <p className="mt-4 text-sm leading-7 text-[#00458b]/76">{step.description}</p>
+              <div className="mt-6 rounded-[1.2rem] border border-[#00458b]/8 bg-white/85 p-4">
+                <p className="text-xs uppercase tracking-[0.24em] text-[#00458b]/62">
                   Deliverable
                 </p>
-                <p className="mt-2 text-sm leading-6 text-slate-700">{step.deliverable}</p>
+                <p className="mt-2 text-sm leading-6 text-[#00458b]/84">{step.deliverable}</p>
               </div>
             </motion.div>
           ))}
