@@ -33,7 +33,7 @@
   --chart-3: #ffffff;
   --chart-4: #00458b;
   --chart-5: #f5d704;
-  --radius: 1.25rem;
+  --radius: 0.5rem;
   --sidebar: #ffffff;
   --sidebar-foreground: #00458b;
   --sidebar-primary: #00458b;
@@ -212,7 +212,8 @@
   .panel-surface {
     background: rgba(255, 255, 255, 0.96);
     border: 1px solid rgba(0, 69, 139, 0.09);
-    box-shadow: 0 24px 60px -48px rgba(0, 69, 139, 0.22);
+    border-radius: 0.5rem;
+    box-shadow: 0 24px 60px -48px rgba(0, 69, 139, 0.28);
   }
 
   .section-eyebrow {
@@ -221,27 +222,56 @@
     letter-spacing: 0.24em;
     text-transform: uppercase;
     color: rgba(0, 69, 139, 0.74);
+    border-left: 3px solid #f5d704;
+    padding-left: 0.6rem;
   }
 
   .section-title {
     font-family: var(--site-font-display);
-    font-size: clamp(2rem, 5vw, 4.2rem);
+    font-size: clamp(2rem, 5vw, 4.8rem);
     line-height: 0.96;
-    letter-spacing: -0.08em;
+    letter-spacing: -0.06em;
     color: var(--foreground);
   }
 
   .section-copy {
     max-width: 48rem;
-    font-size: 1.05rem;
-    line-height: 1.85;
+    font-size: 1.1rem;
+    line-height: 1.75;
     color: var(--muted-foreground);
   }
 
   .grid-pattern {
-    background-image:
-      linear-gradient(rgba(0, 69, 139, 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 69, 139, 0.08) 1px, transparent 1px);
-    background-size: 40px 40px;
+    background-image: radial-gradient(circle, rgba(0, 69, 139, 0.18) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .yellow-rule {
+    display: block;
+    height: 5px;
+    background: #f5d704;
+    border-radius: 2px;
+  }
+
+  .stat-block {
+    font-family: var(--site-font-display);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    color: var(--primary);
+  }
+
+  .tag-mono {
+    font-family: ui-monospace, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    background: rgba(0, 69, 139, 0.07);
+    border: 1px solid rgba(0, 69, 139, 0.15);
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+
+  .card-accent {
+    border-top: 4px solid #f5d704;
   }
 }

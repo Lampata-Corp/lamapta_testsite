@@ -33,10 +33,10 @@ export function Capabilities() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.45, delay: index * 0.08 }}
-                className="rounded-[1.8rem] border border-[#00458b]/10 bg-white p-6 shadow-[0_22px_50px_-42px_rgba(0,69,139,0.18)]"
+                className="rounded-[0.75rem] border border-[#00458b]/10 border-t-4 border-t-[#f5d704] bg-white p-6 shadow-[0_22px_50px_-42px_rgba(0,69,139,0.18)]"
               >
                 <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#00458b] text-white">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#f5d704] text-[#00458b]">
                     <Icon className="h-5 w-5" />
                   </div>
                   <p className="section-eyebrow">{pillar.title}</p>
@@ -47,18 +47,15 @@ export function Capabilities() {
                 </h3>
                 <p className="mt-4 text-sm leading-7 text-[#00458b]/76">{pillar.description}</p>
 
-                <div className="mt-6 space-y-3">
+                <div className="mt-6 flex flex-wrap gap-2">
                   {pillar.capabilities.map((capability) => (
-                    <div
-                      key={capability}
-                      className="rounded-[1rem] bg-white px-4 py-3 text-sm leading-6 text-[#00458b]/76 ring-1 ring-[#00458b]/8"
-                    >
+                    <span key={capability} className="tag-mono">
                       {capability}
-                    </div>
+                    </span>
                   ))}
                 </div>
 
-                <p className="mt-6 border-t border-[#00458b]/10 pt-5 text-sm leading-7 text-[#00458b]/84">
+                <p className="mt-6 border-l-4 border-[#f5d704] pl-3 pt-5 text-sm font-semibold leading-7 text-[#00458b]/84">
                   {pillar.outcome}
                 </p>
               </motion.div>

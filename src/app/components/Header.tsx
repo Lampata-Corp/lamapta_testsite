@@ -12,9 +12,9 @@ export function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed inset-x-0 top-0 z-50 border-b border-[#00458b]/10 bg-white/92 backdrop-blur-xl"
+      className="fixed inset-x-0 top-0 z-50 border-t-[3px] border-t-[#f5d704] border-b border-b-[#00458b]/10 bg-white/92 backdrop-blur-xl"
     >
-      <div className="mx-auto max-w-7xl px-6 py-4">
+      <div className="mx-auto max-w-7xl px-6 py-3">
         <div className="flex items-center justify-between">
           <a
             href="#"
@@ -29,14 +29,14 @@ export function Header() {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm text-[#00458b]/74 transition-colors hover:text-[#00458b]"
+                className="border-b-2 border-transparent pb-0.5 text-sm text-[#00458b]/74 transition-colors hover:border-[#f5d704] hover:text-[#00458b]"
               >
                 {item.label}
               </a>
             ))}
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-[#00458b] px-5 py-2.5 text-sm text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#00458b]/90"
+              className="inline-flex items-center gap-2 rounded-full bg-[#f5d704] px-5 py-2.5 text-sm font-semibold text-[#00458b] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-yellow-300"
             >
               Start a conversation
               <ArrowRight className="h-4 w-4" />

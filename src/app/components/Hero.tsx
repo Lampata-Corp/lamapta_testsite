@@ -27,6 +27,8 @@ export function Hero() {
             Turn complex geo-spatial data into intelligence people can actually use.
           </motion.h1>
 
+          <span className="yellow-rule mt-5 w-16" />
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -68,7 +70,9 @@ export function Hero() {
           >
             {heroProofPoints.map((point) => (
               <div key={point} className="flex items-start gap-3 text-[#00458b]/76">
-                <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[#00458b]" />
+                <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#f5d704]">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-[#00458b]" />
+                </span>
                 <p className="text-sm leading-7 md:text-base">{point}</p>
               </div>
             ))}
@@ -83,7 +87,10 @@ export function Hero() {
           transition={{ duration: 0.65, delay: 0.2 }}
           className="relative"
         >
-          <div className="overflow-hidden rounded-[2rem] border border-[#00458b]/10 bg-white shadow-[0_30px_80px_-42px_rgba(0,69,139,0.32)]">
+          {/* Yellow geometric accent */}
+          <div className="absolute -right-8 -top-8 -z-10 h-[70%] w-[70%] rounded-lg bg-[#f5d704]" />
+
+          <div className="overflow-hidden rounded-[1rem] border border-[#00458b]/10 bg-white shadow-[0_30px_80px_-42px_rgba(0,69,139,0.32)] ring-4 ring-[#f5d704]/40">
             <ImageWithFallback
               src={heroImages.primary}
               alt="Satellite earth observation imagery"
@@ -91,20 +98,22 @@ export function Hero() {
             />
           </div>
 
-          <div className="absolute bottom-5 right-5 rounded-[1.4rem] bg-white/95 p-4 shadow-[0_24px_55px_-34px_rgba(0,69,139,0.34)] backdrop-blur">
+          <div className="absolute bottom-5 right-5 overflow-hidden rounded-[0.75rem] border-t-4 border-t-[#f5d704] bg-white/95 p-4 shadow-[0_24px_55px_-34px_rgba(0,69,139,0.34)] backdrop-blur">
             <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
               {heroMetrics.map((metric) => (
                 <div key={metric.label} className="min-w-[9rem]">
                   <p className="text-[0.7rem] uppercase tracking-[0.24em] text-[#00458b]/72">
                     {metric.label}
                   </p>
-                  <p className="mt-2 text-sm font-semibold text-[#00458b]">{metric.value}</p>
+                  <p className="font-display mt-1 text-2xl font-bold tracking-[-0.05em] text-[#00458b]">
+                    {metric.value}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="absolute -bottom-10 left-6 hidden w-[42%] overflow-hidden rounded-[1.5rem] border-4 border-white shadow-[0_26px_55px_-34px_rgba(0,69,139,0.34)] md:block">
+          <div className="absolute -bottom-10 left-6 hidden w-[42%] overflow-hidden rounded-[0.75rem] border-4 border-white shadow-[0_26px_55px_-34px_rgba(0,69,139,0.34)] md:block">
             <ImageWithFallback
               src={heroImages.secondary}
               alt="Geo-spatial data visualization"

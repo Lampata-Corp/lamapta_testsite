@@ -23,12 +23,14 @@ export function AudienceSection() {
           initial={{ opacity: 0, y: 18 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.45 }}
-          className="overflow-hidden rounded-[2rem] border border-[#00458b]/10 bg-white shadow-[0_28px_70px_-46px_rgba(0,69,139,0.28)]"
+          className="relative overflow-hidden rounded-[0.75rem] border border-[#00458b]/10 bg-white shadow-[0_28px_70px_-46px_rgba(0,69,139,0.28)]"
         >
+          {/* Yellow background swatch */}
+          <div className="absolute -right-6 -top-6 h-[45%] w-[45%] bg-[#f5d704]" />
           <ImageWithFallback
             src={audienceFeatureImage}
             alt="Earth observation imagery from space"
-            className="h-[320px] w-full object-cover md:h-[620px]"
+            className="relative h-[320px] w-full object-cover md:h-[620px]"
           />
           <div className="border-t border-[#00458b]/10 bg-white px-6 py-5">
             <p className="section-eyebrow mb-2">What Lampata works with</p>
@@ -57,23 +59,29 @@ export function AudienceSection() {
                   initial={{ opacity: 0, y: 18 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.45, delay: index * 0.08 }}
-                  className="rounded-[1.5rem] border border-[#00458b]/10 bg-white p-6 shadow-[0_22px_50px_-42px_rgba(0,69,139,0.2)]"
+                  className="relative overflow-hidden rounded-[0.75rem] border border-[#00458b]/10 border-t-4 border-t-[#f5d704] bg-white p-6 shadow-[0_22px_50px_-42px_rgba(0,69,139,0.2)]"
                 >
-                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-[#00458b] text-white">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="font-display text-2xl tracking-[-0.05em] text-[#00458b]">
-                    {segment.title}
-                  </h3>
-                  <p className="mt-4 text-sm leading-7 text-[#00458b]/76">{segment.summary}</p>
+                  {/* Watermark step number */}
+                  <span className="font-display pointer-events-none absolute -right-2 -top-4 select-none text-[6rem] leading-none tracking-[-0.08em] text-[#00458b]/5">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div className="relative">
+                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#f5d704] text-[#00458b]">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-display text-xl font-semibold tracking-[-0.05em] text-[#00458b]">
+                      {segment.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-7 text-[#00458b]/76">{segment.summary}</p>
 
-                  <div className="mt-6 space-y-3">
-                    {segment.outcomes.map((outcome) => (
-                      <div key={outcome} className="flex gap-3">
-                        <span className="mt-2 h-2 w-2 rounded-full bg-[#f5d704]" />
-                        <p className="text-sm leading-6 text-[#00458b]/76">{outcome}</p>
-                      </div>
-                    ))}
+                    <div className="mt-6 space-y-3">
+                      {segment.outcomes.map((outcome) => (
+                        <div key={outcome} className="flex gap-3">
+                          <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#f5d704]" />
+                          <p className="text-sm leading-6 text-[#00458b]/76">{outcome}</p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </motion.div>
               );

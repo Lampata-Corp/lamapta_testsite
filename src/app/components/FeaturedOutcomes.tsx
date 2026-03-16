@@ -24,13 +24,15 @@ export function FeaturedOutcomes() {
               initial={{ opacity: 0, y: 18 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              className="overflow-hidden rounded-[1.8rem] border border-[#00458b]/10 bg-white shadow-[0_26px_60px_-46px_rgba(0,69,139,0.22)]"
+              className="group overflow-hidden rounded-[0.75rem] border border-[#00458b]/10 border-t-4 border-t-[#f5d704] bg-white shadow-[0_26px_60px_-46px_rgba(0,69,139,0.22)]"
             >
-              <ImageWithFallback
-                src={story.image}
-                alt={story.title}
-                className="h-56 w-full object-cover"
-              />
+              <div className="overflow-hidden">
+                <ImageWithFallback
+                  src={story.image}
+                  alt={story.title}
+                  className="min-h-[60vh] w-full scale-105 object-cover transition-transform duration-500 group-hover:scale-100"
+                />
+              </div>
 
               <div className="p-6">
                 <p className="section-eyebrow mb-3">{story.context}</p>
@@ -51,7 +53,7 @@ export function FeaturedOutcomes() {
                     </p>
                     <p className="mt-2 text-sm leading-7 text-[#00458b]/76">{story.approach}</p>
                   </div>
-                  <div className="border-l-4 border-[#f5d704] bg-[#f5d704]/10 px-4 py-4">
+                  <div className="border-l-4 border-[#f5d704] bg-[#f5d704]/20 px-4 py-4">
                     <p className="text-xs uppercase tracking-[0.24em] text-[#00458b]">
                       Outcome
                     </p>
@@ -61,10 +63,7 @@ export function FeaturedOutcomes() {
 
                 <div className="mt-6 flex flex-wrap gap-2">
                   {story.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-[#00458b]/6 px-3 py-1 text-xs text-[#00458b]/76"
-                    >
+                    <span key={tag} className="tag-mono">
                       {tag}
                     </span>
                   ))}
