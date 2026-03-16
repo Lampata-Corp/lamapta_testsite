@@ -29,6 +29,16 @@ export interface CapabilityPillar {
   capabilities: string[];
 }
 
+export interface CaseStudy {
+  visual: "response" | "footprint" | "mobility";
+  badge: string;
+  metric: string;
+  title: string;
+  description: string;
+  outcomes: string[];
+  client: string;
+}
+
 export interface ProofStory {
   visual: "response" | "footprint" | "mobility";
   image: string;
@@ -56,8 +66,7 @@ export interface ProcessStep {
 
 export const navItems: NavItem[] = [
   { label: "Who We Work With", href: "#who-we-work-with" },
-  { label: "Capabilities", href: "#capabilities" },
-  { label: "Outcomes", href: "#featured-outcomes" },
+  { label: "Case Studies", href: "#case-studies" },
   { label: "Research", href: "#open-science" },
   { label: "Contact", href: "#contact" },
 ];
@@ -193,6 +202,51 @@ export const capabilityPillars: CapabilityPillar[] = [
       "Dashboards, digital products, and monitoring prototypes",
       "Structured handoff for teams that will run or maintain the work",
     ],
+  },
+];
+
+export const caseStudies: CaseStudy[] = [
+  {
+    visual: "response",
+    badge: "Thermal Analysis",
+    metric: "−3.2°C avg reduction",
+    title: "Urban Heat Island Mapping — Amsterdam Metropolitan Area",
+    description:
+      "Working with the City of Amsterdam's climate adaptation unit, we developed a high-resolution thermal intelligence platform combining Landsat-9 TIRS and Copernicus Sentinel-3 LST data with aerial LiDAR canopy maps. The system identifies neighbourhood-level heat vulnerability at 10m resolution, enabling targeted urban greening investment.",
+    outcomes: [
+      "92% model accuracy",
+      "4× faster mapping",
+      "−3.2°C hotspots",
+    ],
+    client: "Amsterdam Climate Office & TU Delft Urban Lab · 2024",
+  },
+  {
+    visual: "footprint",
+    badge: "Change Detection",
+    metric: "98.4% detection rate",
+    title: "Deforestation Monitoring System — Borneo, Indonesia",
+    description:
+      "Deployed a near-real-time forest loss detection system for a major conservation NGO operating across 2.3 million hectares of protected rainforest in Kalimantan. Using multi-temporal Sentinel-2 composites and a custom U-Net architecture, our model flags deforestation events within 48 hours of satellite overpass, enabling rapid ranger response.",
+    outcomes: [
+      "98.4% detection",
+      "48h alert latency",
+      "−67% response time",
+    ],
+    client: "Borneo Conservation Trust & ESA-funded Initiative · 2023–2024",
+  },
+  {
+    visual: "mobility",
+    badge: "Logistics Intelligence",
+    metric: "$14M annual savings",
+    title: "Port Vessel & Cargo Optimisation — Global Shipping Enterprise",
+    description:
+      "Partnered with a top-10 global container shipping operator to build a vessel movement intelligence platform. Combining AIS transponder feeds, SAR satellite vessel detection, and port infrastructure digital twins, we developed a predictive berth allocation and yard optimisation engine deployed across 6 major hub ports.",
+    outcomes: [
+      "31% berth efficiency",
+      "$14M annual savings",
+      "−22% idle time",
+    ],
+    client: "Confidential Global Shipping Enterprise · Port ops across 6 continents · 2024",
   },
 ];
 

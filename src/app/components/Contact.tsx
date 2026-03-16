@@ -1,13 +1,19 @@
 import type { ChangeEvent, FormEvent } from "react";
 import { useState } from "react";
 import { motion, useInView } from "motion/react";
-import { ArrowRight, Mail, MessageSquareText } from "lucide-react";
+import { ArrowRight, ExternalLink, Mail, MapPin } from "lucide-react";
 import { useRef } from "react";
-import { contactChecklist } from "../content/siteContent";
+import { OfficeMap } from "./OfficeMap";
 
 export function Contact() {
   const ref = useRef<HTMLElement | null>(null);
   const isInView = useInView(ref, { once: true, margin: "-120px" });
+  const officeLatitude = 52.203402467982464;
+  const officeLongitude = 0.13190011440690916;
+  const formattedCoordinatePair = `LAT ${officeLatitude.toFixed(6)}° N  |  LON ${officeLongitude.toFixed(6)}° E`;
+  const technicalCoordinatePair = `WGS84 / ${officeLatitude.toFixed(6)}°N, ${officeLongitude.toFixed(6)}°E`;
+  const openStreetMapUrl =
+    `https://www.openstreetmap.org/?mlat=${officeLatitude}&mlon=${officeLongitude}#map=16/${officeLatitude}/${officeLongitude}`;
   const [formData, setFormData] = useState({
     name: "",
     organization: "",
@@ -40,153 +46,151 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" ref={ref} className="bg-[#00458b] px-6 py-24">
+    <section id="contact" ref={ref} className="bg-white px-6 py-24">
       <div className="mx-auto max-w-7xl">
-        {/* Section intro — white text on dark bg */}
-        <div className="mb-14 flex max-w-3xl flex-col gap-4">
-          <span
-            className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-white/60"
-            style={{ borderLeft: "3px solid #f5d704", paddingLeft: "0.6rem" }}
-          >
-            Contact
-          </span>
-          <h2
-            className="font-display text-balance leading-[0.96] tracking-[-0.06em] text-white"
-            style={{ fontSize: "clamp(2rem, 5vw, 4.8rem)" }}
-          >
-            Bring a dataset, decision, or blocked idea. Lampata can help scope the next move.
-          </h2>
-          <p className="max-w-[48rem] text-[1.1rem] leading-[1.75] text-white/70">
-            No long RFP is required for a first conversation. A short note about the problem,
-            the data, and the timeline is enough to make the exchange useful.
-          </p>
+        <div className="mb-12 flex max-w-3xl flex-col gap-4">
+          <span className="section-eyebrow">Contact</span>
+          <h2 className="section-title">Get in touch</h2>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="grid items-stretch gap-8 lg:grid-cols-[1fr_1fr]">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.45 }}
-            className="flex flex-col"
+            className="flex min-h-[38rem] flex-col"
           >
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#f5d704] text-[#00458b]">
-              <MessageSquareText className="h-5 w-5" />
-            </div>
-            <h3 className="font-display mt-6 text-3xl leading-tight tracking-[-0.06em] text-white">
-              Good starting points for a first conversation
-            </h3>
-            <div className="mt-6 space-y-4">
-              {contactChecklist.map((item) => (
-                <div key={item} className="flex gap-3">
-                  <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#f5d704]" />
-                  <p className="text-sm leading-7 text-white/80">{item}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 rounded-[0.5rem] border border-white/15 bg-white/10 p-5">
-              <p
-                className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-white/60"
-                style={{ borderLeft: "3px solid #f5d704", paddingLeft: "0.6rem" }}
-              >
-                Best fit
+            <div className="px-6 pb-4 pt-5">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#00458b]/58">
+                Office location
               </p>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  "EO pilots",
-                  "Data audits",
-                  "Monitoring products",
-                  "Open-source tooling",
-                  "Research-to-production",
-                ].map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-[3px] border border-white/20 bg-white/10 px-2 py-0.5 font-mono text-[0.7rem] tracking-[0.08em] text-white/80"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
             </div>
-
-            <a
-              href="mailto:contact@lampata.com"
-              className="mt-8 inline-flex items-center gap-2 text-lg text-white transition-colors hover:text-white/80"
-            >
-              <Mail className="h-4 w-4" />
-              contact@lampata.com
-            </a>
+            <div className="min-h-[28rem] flex-1 overflow-hidden rounded-[1rem] px-3 pb-3">
+              <OfficeMap />
+            </div>
+            <div className="flex items-center justify-between gap-4 px-6 py-4">
+              <div className="flex items-center gap-3 text-[#00458b]/78">
+                <MapPin className="h-4 w-4 shrink-0 text-[#00458b]" />
+                <p className="font-mono text-[0.82rem] font-semibold tracking-[0.08em] text-[#00458b]/84">
+                  {formattedCoordinatePair}
+                </p>
+              </div>
+              <a
+                href={openStreetMapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#00458b] transition-opacity hover:opacity-72"
+              >
+                Open in OpenStreetMap
+                <ExternalLink className="h-4 w-4" />
+              </a>
+            </div>
           </motion.div>
 
-          <motion.form
+          <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.45, delay: 0.08 }}
-            onSubmit={handleSubmit}
-            className="rounded-[0.75rem] border border-white/15 bg-white/8 p-6 backdrop-blur"
+            className="flex min-h-[38rem] flex-col rounded-[1.2rem] bg-white p-8 shadow-[0_28px_70px_-52px_rgba(0,69,139,0.26)]"
           >
-            <div className="grid gap-5 md:grid-cols-2">
-              <label className="flex flex-col gap-2 text-sm text-white/80">
-                Name
+            <div className="mb-8 space-y-5">
+              <div className="flex items-start gap-3">
+                <Mail className="mt-0.5 h-5 w-5 shrink-0 text-[#00458b]" />
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#00458b]/52">
+                    Email
+                  </p>
+                  <a
+                    href="mailto:contact@lampata.com"
+                    className="mt-1 inline-flex items-center gap-2 text-lg font-semibold text-[#00458b] transition-opacity hover:opacity-72"
+                  >
+                    contact@lampata.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[#00458b]" />
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#00458b]/52">
+                    Office
+                  </p>
+                  <p className="mt-1 font-mono text-[0.94rem] tracking-[0.08em] text-[#00458b]/78">
+                    {technicalCoordinatePair}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <motion.form
+              initial={{ opacity: 0, y: 12 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4, delay: 0.14 }}
+              onSubmit={handleSubmit}
+              className="flex flex-1 flex-col"
+            >
+              <div className="grid gap-5 md:grid-cols-2">
+                <label className="flex flex-col gap-1.5 text-sm text-[#00458b]/80">
+                  Name
+                  <input
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your name"
+                    className="rounded-[0.5rem] border border-[#00458b]/12 bg-[#f5f7fa] px-4 py-3 text-[#00458b] placeholder:text-[#00458b]/35 focus:border-[#00458b]/30 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#00458b]/8"
+                  />
+                </label>
+
+                <label className="flex flex-col gap-1.5 text-sm text-[#00458b]/80">
+                  Organization
+                  <input
+                    name="organization"
+                    value={formData.organization}
+                    onChange={handleChange}
+                    placeholder="Organization or team"
+                    className="rounded-[0.5rem] border border-[#00458b]/12 bg-[#f5f7fa] px-4 py-3 text-[#00458b] placeholder:text-[#00458b]/35 focus:border-[#00458b]/30 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#00458b]/8"
+                  />
+                </label>
+              </div>
+
+              <label className="mt-5 flex flex-col gap-1.5 text-sm text-[#00458b]/80">
+                Email
                 <input
-                  name="name"
-                  value={formData.name}
+                  type="email"
+                  name="email"
+                  value={formData.email}
                   onChange={handleChange}
-                  placeholder="Your name"
-                  className="rounded-[0.5rem] border border-white/20 bg-white px-4 py-3 text-[#00458b] placeholder:text-[#00458b]/40 focus:border-white/40 focus:outline-none focus:ring-4 focus:ring-white/10"
+                  placeholder="name@organization.com"
+                  className="rounded-[0.5rem] border border-[#00458b]/12 bg-[#f5f7fa] px-4 py-3 text-[#00458b] placeholder:text-[#00458b]/35 focus:border-[#00458b]/30 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#00458b]/8"
                 />
               </label>
 
-              <label className="flex flex-col gap-2 text-sm text-white/80">
-                Organization
-                <input
-                  name="organization"
-                  value={formData.organization}
+              <label className="mt-5 flex flex-col gap-1.5 text-sm text-[#00458b]/80">
+                Message
+                <textarea
+                  name="message"
+                  value={formData.message}
                   onChange={handleChange}
-                  placeholder="Organization or team"
-                  className="rounded-[0.5rem] border border-white/20 bg-white px-4 py-3 text-[#00458b] placeholder:text-[#00458b]/40 focus:border-white/40 focus:outline-none focus:ring-4 focus:ring-white/10"
+                  placeholder="Tell us what you're working on."
+                  rows={6}
+                  className="rounded-[0.5rem] border border-[#00458b]/12 bg-[#f5f7fa] px-4 py-3 text-[#00458b] placeholder:text-[#00458b]/35 focus:border-[#00458b]/30 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#00458b]/8"
                 />
               </label>
-            </div>
 
-            <label className="mt-5 flex flex-col gap-2 text-sm text-white/80">
-              Email
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="name@organization.com"
-                className="rounded-[0.5rem] border border-white/20 bg-white px-4 py-3 text-[#00458b] placeholder:text-[#00458b]/40 focus:border-white/40 focus:outline-none focus:ring-4 focus:ring-white/10"
-              />
-            </label>
-
-            <label className="mt-5 flex flex-col gap-2 text-sm text-white/80">
-              What are you trying to figure out?
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Describe the decision, the data, or the workflow that needs help."
-                rows={7}
-                className="rounded-[0.5rem] border border-white/20 bg-white px-4 py-3 text-[#00458b] placeholder:text-[#00458b]/40 focus:border-white/40 focus:outline-none focus:ring-4 focus:ring-white/10"
-              />
-            </label>
-
-            <div className="mt-6 flex flex-col gap-4 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
-              <p className="max-w-md text-sm leading-6 text-white/50">
-                Submitting opens your email client with a prefilled message so there is no
-                backend dependency and no fake form flow.
-              </p>
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#f5d704] px-6 py-3.5 font-semibold text-[#00458b] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-yellow-300"
-              >
-                Start the email
-                <ArrowRight className="h-4 w-4" />
-              </button>
-            </div>
-          </motion.form>
+              <div className="mt-auto flex flex-col gap-4 border-t border-[#00458b]/8 pt-6 md:flex-row md:items-center md:justify-between">
+                <p className="max-w-xs text-sm leading-6 text-[#00458b]/55">
+                  Submitting opens your email client with a prefilled message.
+                </p>
+                <button
+                  type="submit"
+                  className="brand-gold-button inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 font-semibold transition-transform duration-200 hover:-translate-y-0.5"
+                >
+                  Send message
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </div>
+            </motion.form>
+          </motion.div>
         </div>
       </div>
     </section>

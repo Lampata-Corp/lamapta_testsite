@@ -1,8 +1,7 @@
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { AudienceSection } from "./components/AudienceSection";
-import { Capabilities } from "./components/Capabilities";
-import { FeaturedOutcomes } from "./components/FeaturedOutcomes";
+import { CaseStudies } from "./components/CaseStudies";
 import { OpenScience } from "./components/OpenScience";
 import { HowWeWork } from "./components/HowWeWork";
 import { Contact } from "./components/Contact";
@@ -15,8 +14,7 @@ export default function App() {
       <main>
         <Hero />
         <AudienceSection />
-        <Capabilities />
-        <FeaturedOutcomes />
+        <CaseStudies />
         <OpenScience />
         <HowWeWork />
         <Contact />

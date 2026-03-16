@@ -29,15 +29,15 @@ export function OpenScience() {
             initial={{ opacity: 0, y: 18 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.45 }}
-            className="panel-surface rounded-[0.75rem] p-6"
+            className="panel-surface flex flex-col rounded-[0.75rem] p-8"
           >
-            <p className="section-eyebrow mb-4">What teams receive</p>
-            <h3 className="font-display text-3xl leading-tight tracking-[-0.06em] text-[#00458b]">
+            <p className="section-eyebrow mb-5">What teams receive</p>
+            <h3 className="font-display text-2xl leading-tight tracking-[-0.06em] text-[#00458b]">
               Work that can survive scrutiny after the prototype phase.
             </h3>
             <span className="yellow-rule mt-4 w-12" />
 
-            <blockquote className="mt-5 font-display text-2xl font-semibold italic leading-tight tracking-[-0.04em] text-[#00458b]">
+            <blockquote className="mt-6 font-display text-xl font-semibold italic leading-tight tracking-[-0.03em] text-[#00458b]">
               "Documented, reproducible, and ready to hand off — not a model no one can explain."
             </blockquote>
 
@@ -47,14 +47,17 @@ export function OpenScience() {
               team to reverse engineer the logic later.
             </p>
 
-            <div className="mt-8 space-y-2">
+            <div className="mt-6 grow space-y-2">
               {[
                 "Model notes and assumptions",
                 "Reproducible notebooks or pipeline documentation",
                 "Metadata and integration guidance",
                 "QA checkpoints and review artifacts",
               ].map((item) => (
-                <div key={item} className="tag-mono inline-flex w-full items-center">
+                <div
+                  key={item}
+                  className="brand-gold-border-left border-l-2 pl-3 text-sm leading-6 text-[#00458b]/76"
+                >
                   {item}
                 </div>
               ))}
@@ -73,14 +76,14 @@ export function OpenScience() {
                   transition={{ duration: 0.45, delay: index * 0.08 }}
                   className="panel-surface rounded-[0.75rem] p-6"
                 >
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#f5d704] text-[#00458b]">
+                  <div className="brand-gold-fill mb-5 flex h-12 w-12 items-center justify-center rounded-xl text-[#00458b]">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="font-display text-2xl leading-tight tracking-[-0.05em] text-[#00458b]">
+                  <h3 className="font-display text-xl leading-tight tracking-[-0.05em] text-[#00458b]">
                     {item.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-7 text-[#00458b]/76">{item.description}</p>
-                  <div className="mt-6 flex flex-wrap gap-2">
+                  <p className="mt-3 text-sm leading-7 text-[#00458b]/76">{item.description}</p>
+                  <div className="mt-5 flex flex-wrap gap-1.5">
                     {item.details.map((detail) => (
                       <span key={detail} className="tag-mono">
                         {detail}

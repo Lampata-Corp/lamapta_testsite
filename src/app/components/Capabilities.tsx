@@ -33,29 +33,32 @@ export function Capabilities() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.45, delay: index * 0.08 }}
-                className="rounded-[0.75rem] border border-[#00458b]/10 border-t-4 border-t-[#f5d704] bg-white p-6 shadow-[0_22px_50px_-42px_rgba(0,69,139,0.18)]"
+                className="brand-gold-border-top flex flex-col rounded-[0.75rem] border border-[#00458b]/10 border-t-4 bg-white p-6 shadow-[0_22px_50px_-42px_rgba(0,69,139,0.18)]"
               >
                 <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#f5d704] text-[#00458b]">
+                  <div className="brand-gold-fill flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-[#00458b]">
                     <Icon className="h-5 w-5" />
                   </div>
                   <p className="section-eyebrow">{pillar.title}</p>
                 </div>
 
-                <h3 className="font-display mt-5 text-3xl leading-tight tracking-[-0.06em] text-[#00458b]">
+                <h3 className="font-display mt-5 text-2xl leading-tight tracking-[-0.06em] text-[#00458b]">
                   {pillar.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-[#00458b]/76">{pillar.description}</p>
+                <p className="mt-3 text-sm leading-7 text-[#00458b]/76">{pillar.description}</p>
 
-                <div className="mt-6 flex flex-wrap gap-2">
+                <div className="mt-5 grow space-y-2">
                   {pillar.capabilities.map((capability) => (
-                    <span key={capability} className="tag-mono">
+                    <div
+                      key={capability}
+                      className="rounded-[3px] border border-[#00458b]/10 bg-[#00458b]/[0.04] px-3 py-2 font-mono text-[0.72rem] leading-5 tracking-[0.04em] text-[#00458b]/70"
+                    >
                       {capability}
-                    </span>
+                    </div>
                   ))}
                 </div>
 
-                <p className="mt-6 border-l-4 border-[#f5d704] pl-3 pt-5 text-sm font-semibold leading-7 text-[#00458b]/84">
+                <p className="brand-gold-border-left mt-6 border-l-4 pl-3 text-sm font-semibold leading-7 text-[#00458b]/84">
                   {pillar.outcome}
                 </p>
               </motion.div>

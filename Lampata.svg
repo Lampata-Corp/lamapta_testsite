@@ -10,8 +10,29 @@
    xml:space="preserve"
    width="1135.587"
    height="333.04401"
+   sodipodi:docname="Lampata.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+   id="namedview1"
+   pagecolor="#ffffff"
+   bordercolor="#000000"
+   borderopacity="0.25"
+   inkscape:showpageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   inkscape:deskcolor="#d1d1d1"
+   inkscape:zoom="1.2490842"
+   inkscape:cx="568.01616"
+   inkscape:cy="244.57919"
+   inkscape:window-width="2304"
+   inkscape:window-height="1238"
+   inkscape:window-x="1470"
+   inkscape:window-y="30"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1" /><defs
    id="defs320" />
 
 
@@ -133,4 +154,11 @@
 	
 </g>
 
-</svg>
+<ellipse
+   style="fill:#000000;fill-opacity:0;stroke-width:0.892815"
+   id="path1"
+   transform="matrix(0.93953711,-0.3424471,0.48578993,0.87407559,0,0)"
+   ry="105.34608"
+   rx="382.99197"
+   cy="851.34271"
+   cx="-46.089043" /></svg>

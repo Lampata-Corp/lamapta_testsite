@@ -21,7 +21,7 @@ export function Footer() {
             <div>
               <p
                 className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-white/50"
-                style={{ borderLeft: "3px solid #f5d704", paddingLeft: "0.6rem" }}
+                style={{ borderLeft: "3px solid var(--brand-gold-medium)", paddingLeft: "0.6rem" }}
               >
                 Navigate
               </p>
@@ -41,7 +41,7 @@ export function Footer() {
             <div>
               <p
                 className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-white/50"
-                style={{ borderLeft: "3px solid #f5d704", paddingLeft: "0.6rem" }}
+                style={{ borderLeft: "3px solid var(--brand-gold-medium)", paddingLeft: "0.6rem" }}
               >
                 Start with a problem statement
               </p>
