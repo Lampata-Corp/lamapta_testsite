@@ -1,3 +1,5 @@
+import { withBasePath } from "../lib/paths";
+
 export interface NavItem {
   label: string;
   href: string;
@@ -104,11 +106,11 @@ export interface TrainingComingSoonCourse {
 }
 
 export const navItems: NavItem[] = [
-  { label: "Who We Work With", href: "/#who-we-work-with" },
-  { label: "Case Studies", href: "/#case-studies" },
-  { label: "Research", href: "/#open-science" },
-  { label: "Teaching", href: "/training/" },
-  { label: "Tech Radar", href: "/earth-observation-tech-radar/" },
+  { label: "Who We Work With", href: withBasePath("/#who-we-work-with") },
+  { label: "Case Studies", href: withBasePath("/#case-studies") },
+  { label: "Research", href: withBasePath("/#open-science") },
+  { label: "Teaching", href: withBasePath("/training/") },
+  { label: "Tech Radar", href: withBasePath("/earth-observation-tech-radar/") },
 ];
 
 export const heroProofPoints = [

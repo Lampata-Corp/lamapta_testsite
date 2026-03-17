@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import { withBasePath } from "../lib/paths";
 
-const RADAR_EMBED_SRC = "/space-tech-radar/index.html";
+const RADAR_EMBED_SRC = withBasePath("/space-tech-radar/index.html");
 const RADAR_SUBTITLE_HTML =
   'Lampata are proud maintainers of the Earth Observation Tech Radar. It tracks the open-source tools, standards, and practices shaping downstream earth observation science, analytics, and applied delivery. <a href="https://github.com/sunnydean/space-tech-radar" target="_blank" rel="noreferrer noopener">View the GitHub repository</a>.';
 const RADAR_STYLE_OVERRIDES = `

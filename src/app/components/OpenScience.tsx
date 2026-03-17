@@ -2,6 +2,7 @@ import { motion, useInView } from "motion/react";
 import { ArrowUpRight, FlaskConical, GitBranch, Globe2, Workflow } from "lucide-react";
 import { useRef } from "react";
 import { openScienceItems } from "../content/siteContent";
+import { withBasePath } from "../lib/paths";
 import { SectionIntro } from "./SectionIntro";
 
 const iconMap = {
@@ -64,7 +65,7 @@ export function OpenScience() {
             </div>
 
             <a
-              href="/earth-observation-tech-radar/"
+              href={withBasePath("/earth-observation-tech-radar/")}
               className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[#00458b] transition-opacity hover:opacity-72"
             >
               Explore the Earth Observation Tech Radar

@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { navItems } from "../content/siteContent";
+import { withBasePath } from "../lib/paths";
 import { BrandMark } from "./BrandMark";
 
 export function Header() {
@@ -17,7 +18,7 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-6 py-2.5">
         <div className="flex items-center justify-between">
           <a
-            href="/"
+            href={withBasePath("/")}
             className="w-[15.25rem] shrink-0 sm:w-[18.25rem] lg:w-[19.25rem]"
             aria-label="Lampata home"
           >
@@ -35,7 +36,7 @@ export function Header() {
               </a>
             ))}
             <a
-              href="/#contact"
+              href={withBasePath("/#contact")}
               className="brand-gold-button inline-flex items-center gap-2 rounded-full px-5 py-[0.55rem] text-sm font-semibold transition-transform duration-200 hover:-translate-y-0.5"
             >
               Start a conversation
@@ -69,7 +70,7 @@ export function Header() {
               </a>
             ))}
             <a
-              href="/#contact"
+              href={withBasePath("/#contact")}
               onClick={() => setMobileMenuOpen(false)}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#00458b] px-5 py-3 text-center text-white"
             >

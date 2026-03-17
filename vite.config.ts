@@ -14,7 +14,36 @@ function copyDirectory(sourceDir: string, destinationDir: string) {
   });
 }
 
+function normalizeBasePath(basePath?: string) {
+  if (!basePath || basePath === "/") {
+    return "/";
+  }
+
+  const trimmed = basePath.replace(/^\/+|\/+$/g, "");
+  return `/${trimmed}/`;
+}
+
+function getBuildBasePath() {
+  const explicitBasePath = process.env.VITE_BASE_PATH || process.env.BASE_PATH;
+
+  if (explicitBasePath) {
+    return normalizeBasePath(explicitBasePath);
+  }
+
+  if (process.env.GITHUB_PAGES === "true") {
+    const repository = process.env.GITHUB_REPOSITORY?.split("/")[1];
+    const owner = process.env.GITHUB_REPOSITORY_OWNER;
+
+    if (repository && owner && repository !== `${owner}.github.io`) {
+      return `/${repository}/`;
+    }
+  }
+
+  return "/";
+}
+
 export default defineConfig({
+  base: getBuildBasePath(),
   plugins: [
     // The React and Tailwind plugins are both required for Make, even if
     // Tailwind is not being actively used – do not remove them
