@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { heroImages, heroMetrics } from "../content/siteContent";
+import { AnimatedHeadline } from "./AnimatedHeadline";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { TrustStrip } from "./TrustStrip";
 
@@ -18,7 +19,7 @@ export function Hero() {
             className="font-display text-balance leading-[0.94] tracking-[-0.08em] text-[#00458b]"
             style={{ fontSize: "clamp(2.8rem, 6vw, 5.5rem)" }}
           >
-            From Data to Intelligence.
+            <AnimatedHeadline />
           </motion.h1>
 
           <motion.p
