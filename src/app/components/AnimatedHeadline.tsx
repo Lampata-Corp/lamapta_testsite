@@ -2,14 +2,14 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
 
 const ROTATING_WORDS = [
-  "european policy",
-  "earth action",
-  "polar science",
+  "European Policy",
+  "Earth Action",
+  "Polar Science",
   "GeoAI",
   "Innovation",
-  "urban analytics",
-  "engineering",
-  "open source",
+  "Urban Analytics",
+  "Engineering",
+  "Open Source",
 ] as const;
 
 const FROZEN_HEADLINE = {
@@ -17,14 +17,17 @@ const FROZEN_HEADLINE = {
   toWord: "Intelligence",
 } as const;
 
-const SLOT_FROM_WIDTH_CH = Math.max(
-  ...ROTATING_WORDS.map((word) => word.length),
-  FROZEN_HEADLINE.fromWord.length,
+const RESERVED_ROTATING_WORD = ROTATING_WORDS.reduce((longest, word) =>
+  word.length > longest.length ? word : longest,
 );
-const SLOT_TO_WIDTH_CH = Math.max(
-  ...ROTATING_WORDS.map((word) => word.length),
-  FROZEN_HEADLINE.toWord.length,
-);
+const RESERVED_FROM_WORD =
+  FROZEN_HEADLINE.fromWord.length > RESERVED_ROTATING_WORD.length
+    ? FROZEN_HEADLINE.fromWord
+    : RESERVED_ROTATING_WORD;
+const RESERVED_TO_WORD =
+  FROZEN_HEADLINE.toWord.length > RESERVED_ROTATING_WORD.length
+    ? FROZEN_HEADLINE.toWord
+    : RESERVED_ROTATING_WORD;
 
 const CYCLE_INTERVAL_MS = 2000;
 const FROZEN_DURATION_MS = 5000;
@@ -113,32 +116,39 @@ export function AnimatedHeadline() {
   }, [headline.phase, headline.cycleCount, shouldReduceMotion]);
 
   return (
-    <span className="inline-flex max-w-full flex-wrap items-baseline gap-x-[0.22em] gap-y-[0.05em]">
-      <span>From</span>
-      <AnimatedWord word={headline.fromWord} widthCh={SLOT_FROM_WIDTH_CH} />
-      <span>to</span>
-      <AnimatedWord word={headline.toWord} widthCh={SLOT_TO_WIDTH_CH} />
+    <span className="grid w-fit max-w-full gap-y-[0.08em] text-[0.9em]">
+      <span className="flex min-w-0 items-baseline gap-x-[0.22em] whitespace-nowrap">
+        <span>From</span>
+        <AnimatedWord word={headline.fromWord} reserveWord={RESERVED_FROM_WORD} />
+      </span>
+      <span className="flex min-w-0 items-baseline gap-x-[0.22em] whitespace-nowrap">
+        <span>To</span>
+        <AnimatedWord word={headline.toWord} reserveWord={RESERVED_TO_WORD} />
+      </span>
     </span>
   );
 }
 
-function AnimatedWord({ word, widthCh }: { word: string; widthCh: number }) {
+function AnimatedWord({ word, reserveWord }: { word: string; reserveWord: string }) {
   return (
-    <span
-      className="relative inline-grid align-baseline"
-      style={{ minWidth: `${widthCh + 0.6}ch` }}
-    >
-      <span className="invisible col-start-1 row-start-1 whitespace-nowrap">{word}</span>
+    <span className="relative inline-grid max-w-full align-baseline pr-[0.12em]">
+      <span className="invisible col-start-1 row-start-1 whitespace-nowrap pb-[0.22em]">
+        {reserveWord}
+      </span>
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-[0.02em] left-[0.08em] h-[0.035em] w-[48%] rounded-full bg-[#f5d704]/18"
+      />
       <AnimatePresence mode="wait" initial={false}>
         <motion.span
           key={word}
-          initial={{ opacity: 0, y: "0.34em" }}
+          initial={{ opacity: 0, y: "0.04em" }}
           animate={{ opacity: 1, y: "0em" }}
-          exit={{ opacity: 0, y: "-0.26em" }}
-          transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute inset-0 whitespace-nowrap"
+          exit={{ opacity: 0, y: "-0.03em" }}
+          transition={{ duration: 0.18, ease: [0.28, 0.92, 0.36, 1] }}
+          className="absolute left-0 top-0 whitespace-nowrap"
         >
-          {word}
+          <span>{word}</span>
         </motion.span>
       </AnimatePresence>
     </span>

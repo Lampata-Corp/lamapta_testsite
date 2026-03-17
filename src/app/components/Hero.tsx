@@ -8,7 +8,7 @@ import { TrustStrip } from "./TrustStrip";
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-white px-6 pb-24 pt-32 md:pt-40">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1fr_0.82fr] lg:gap-16">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10">
 
         {/* Left column */}
         <div>
@@ -16,8 +16,8 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55 }}
-            className="font-display text-balance leading-[0.94] tracking-[-0.08em] text-[#00458b]"
-            style={{ fontSize: "clamp(2.8rem, 6vw, 5.5rem)" }}
+            className="font-display text-balance leading-[0.98] tracking-[-0.08em] text-[#00458b]"
+            style={{ fontSize: "clamp(2rem, 6vw, 4.8rem)" }}
           >
             <AnimatedHeadline />
           </motion.h1>
@@ -81,17 +81,17 @@ export function Hero() {
           initial={{ opacity: 0, x: 24 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.65, delay: 0.2 }}
-          className="relative lg:pr-5 lg:pt-5"
+          className="relative lg:pt-5"
         >
           {/* Yellow frame — peeks out top-right, only visible on desktop */}
-          <div className="brand-gold-fill absolute right-0 top-0 hidden h-[78%] w-[78%] rounded-[1rem] lg:block" />
+          <div className="brand-gold-fill absolute right-0 top-0 hidden h-[80%] w-[84%] rounded-[1rem] lg:block" />
 
           {/* Image — sits above the yellow via z-index */}
           <div className="relative z-[1] overflow-hidden rounded-[0.75rem] shadow-[0_40px_80px_-24px_rgba(0,69,139,0.35)]">
             <ImageWithFallback
               src={heroImages.primary}
               alt="Satellite earth observation imagery"
-              className="h-[480px] w-full object-cover md:h-[560px]"
+              className="h-[520px] w-full object-cover md:h-[600px]"
             />
           </div>
         </motion.div>
