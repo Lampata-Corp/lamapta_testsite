@@ -1,9 +1,12 @@
 import type { ChangeEvent, FormEvent } from "react";
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { motion, useInView } from "motion/react";
 import { ArrowRight, ExternalLink, Mail, MapPin } from "lucide-react";
 import { useRef } from "react";
-import { OfficeMap } from "./OfficeMap";
+
+const OfficeMap = lazy(() =>
+  import("./OfficeMap").then((module) => ({ default: module.OfficeMap })),
+);
 
 export function Contact() {
   const ref = useRef<HTMLElement | null>(null);
@@ -45,6 +48,15 @@ export function Contact() {
     window.location.href = `mailto:contact@lampata.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
+  const mapFallback = (
+    <div className="flex h-full min-h-[24rem] items-center justify-center rounded-[0.9rem] bg-[linear-gradient(145deg,rgba(0,69,139,0.05),rgba(245,215,4,0.08))]">
+      <div className="flex items-center gap-3 text-sm font-semibold tracking-[0.12em] text-[#00458b]/58 uppercase">
+        <span className="h-2 w-2 rounded-full bg-[#f5d704]/70" />
+        Loading map
+      </div>
+    </div>
+  );
+
   return (
     <section id="contact" ref={ref} className="bg-white px-6 py-24">
       <div className="mx-auto max-w-7xl">
@@ -66,7 +78,13 @@ export function Contact() {
               </p>
             </div>
             <div className="min-h-[28rem] flex-1 overflow-hidden rounded-[1rem] px-3 pb-3">
-              <OfficeMap />
+              {isInView ? (
+                <Suspense fallback={mapFallback}>
+                  <OfficeMap />
+                </Suspense>
+              ) : (
+                mapFallback
+              )}
             </div>
             <div className="flex items-center justify-between gap-4 px-6 py-4">
               <div className="flex items-center gap-3 text-[#00458b]/78">
