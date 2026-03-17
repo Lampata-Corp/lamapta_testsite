@@ -1,4 +1,4 @@
-import{w as h,r as m,j as e,H as x,o as f,F as w,t as v}from"./index-BKqN0j-e.js";import{L as y,S as j}from"./satellite-DPNlBhZ-.js";import{G as E}from"./git-branch-KRkSJgXp.js";const k=h("/space-tech-radar/index.html"),N='Lampata are proud maintainers of the Earth Observation Tech Radar. It tracks the open-source tools, standards, and practices shaping downstream earth observation science, analytics, and applied delivery. <a href="https://github.com/sunnydean/space-tech-radar" target="_blank" rel="noreferrer noopener">View the GitHub repository</a>.',R=`
+import{w as h,r as m,j as e,H as x,o as f,F as w,t as v}from"./index-y9CieD5G.js";import{L as y,S as j}from"./satellite-Csmlp2ow.js";import{G as E}from"./git-branch-BTy2rQYT.js";const k=h("/space-tech-radar/index.html"),N='Lampata are proud maintainers of the Earth Observation Tech Radar. It tracks the open-source tools, standards, and practices shaping downstream earth observation science, analytics, and applied delivery. <a href="https://github.com/sunnydean/space-tech-radar" target="_blank" rel="noreferrer noopener">View the GitHub repository</a>.',R=`
   :root {
     --bg: transparent;
     --ink: #00458b;
