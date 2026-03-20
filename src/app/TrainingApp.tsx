@@ -9,28 +9,25 @@ import {
   ExternalLink,
   FlaskConical,
   GraduationCap,
-  Layers3,
-  Map,
   MonitorPlay,
-  Satellite,
   UsersRound,
   Video,
 } from "lucide-react";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { SectionIntro } from "./components/SectionIntro";
+import { TrainingRoadmap } from "./components/TrainingRoadmap";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import {
-  trainingComingSoonCourse,
   trainingEvents,
   trainingFormats,
+  trainingRoadmapCourse,
   trainingTracks,
   trainingVideos,
 } from "./content/siteContent";
 
 const trackIcons = [BookOpen, Cpu, FlaskConical, Cloud];
 const formatIcons = [UsersRound, MonitorPlay, GraduationCap];
-const comingSoonIcons = [Map, Layers3, Satellite];
 
 export default function TrainingApp() {
   const [formData, setFormData] = useState({
@@ -254,59 +251,13 @@ export default function TrainingApp() {
 
         <section className="bg-white px-6 py-22">
           <div className="mx-auto max-w-7xl">
-            <SectionIntro
-              eyebrow={trainingComingSoonCourse.label}
-              title="A more comprehensive geo-spatial course is in development."
-              description="Beyond tailored workshops, Lampata is building a broader course for teams that want a fuller pathway through GIS, geo-spatial analysis, and earth observation tooling."
-            />
-
-            <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr]">
-              <article className="panel-surface relative overflow-hidden rounded-[1rem] p-8">
-                <div className="absolute right-0 top-0 h-30 w-30 rounded-bl-[1.5rem] bg-[#f5d704]/18" />
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#00458b]/48">
-                  Planned course
-                </p>
-                <h3 className="mt-4 max-w-xl font-display text-[2.2rem] leading-tight tracking-[-0.06em] text-[#00458b]">
-                  {trainingComingSoonCourse.title}
-                </h3>
-                <p className="mt-4 max-w-2xl text-base leading-8 text-[#00458b]/74">
-                  {trainingComingSoonCourse.summary}
-                </p>
-                <p className="mt-4 max-w-2xl text-sm leading-7 text-[#00458b]/60">
-                  {trainingComingSoonCourse.audience}
-                </p>
-                <p className="mt-6 text-sm font-medium leading-7 text-[#00458b]/62">
-                  {trainingComingSoonCourse.format}
-                </p>
-                <a
-                  href="#request-training"
-                  className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[#00458b] transition-opacity hover:opacity-72"
-                >
-                  Register interest
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-              </article>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                {trainingComingSoonCourse.focusAreas.map((item, index) => {
-                  const Icon = comingSoonIcons[index % comingSoonIcons.length];
-
-                  return (
-                    <article
-                      key={item}
-                      className="rounded-[0.95rem] border border-[#00458b]/10 bg-[#f8fbff] p-6 shadow-[0_20px_48px_-42px_rgba(0,69,139,0.24)]"
-                    >
-                      <div className="brand-gold-fill mb-4 flex h-11 w-11 items-center justify-center rounded-xl text-[#00458b]">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <p className="font-display text-[1.2rem] leading-tight tracking-[-0.04em] text-[#00458b]">
-                        {item}
-                      </p>
-                    </article>
-                  );
-                })}
-              </div>
+            <div className="mb-12 text-center">
+              <h2 className="font-display text-[clamp(2.3rem,4.6vw,4.4rem)] leading-[0.95] tracking-[-0.06em] text-[#00458b]">
+                GeoSpatial Data Science Training Roadmap
+              </h2>
             </div>
+
+            <TrainingRoadmap course={trainingRoadmapCourse} />
           </div>
         </section>
 

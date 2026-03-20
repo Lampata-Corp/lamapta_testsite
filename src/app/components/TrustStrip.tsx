@@ -1,5 +1,4 @@
-import { motion, useInView } from "motion/react";
-import { useRef } from "react";
+import { motion } from "motion/react";
 import { partnerLogos } from "../content/siteContent";
 import esaSiteLogo from "../../assets/logos/esa-site-logo.svg";
 import esaTitleLogo from "../../assets/logos/esa-title-logo.svg";
@@ -12,15 +11,11 @@ interface TrustStripProps {
 }
 
 export function TrustStrip({ className }: TrustStripProps) {
-  const ref = useRef<HTMLElement | null>(null);
-  const isInView = useInView(ref, { once: true, margin: "-120px" });
-
   return (
     <motion.div
-      ref={ref}
       initial={{ opacity: 0, y: 16 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.45 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, delay: 0.32 }}
       className={cn("flex flex-wrap items-center gap-x-4 gap-y-2.5 lg:flex-nowrap", className)}
     >
       <p className="font-brand whitespace-nowrap text-[1.45rem] font-bold uppercase leading-none tracking-[-0.06em] text-[#00458b] sm:text-[1.55rem]">
@@ -31,8 +26,8 @@ export function TrustStrip({ className }: TrustStripProps) {
         <motion.div
           key={partner.id}
           initial={{ opacity: 0, y: 12 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.35, delay: index * 0.08 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35, delay: 0.38 + index * 0.08 }}
           className="shrink-0"
           aria-label={partner.label}
         >

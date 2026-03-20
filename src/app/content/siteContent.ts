@@ -96,14 +96,18 @@ export interface TrainingEvent {
   link?: string;
 }
 
-export interface TrainingComingSoonCourse {
+export interface TrainingRoadmapCourse {
   label: string;
   title: string;
   summary: string;
-  audience: string;
-  format: string;
-  focusAreas: string[];
 }
+
+export const trainingRoadmapCourse: TrainingRoadmapCourse = {
+  label: "Flagship roadmap",
+  title: "Cloud-Native Geospatial Data Science Roadmap",
+  summary:
+    "The roadmap renderer is intentionally small; edit the concepts and technologies in trainingRoadmap.json.",
+};
 
 export const navItems: NavItem[] = [
   { label: "Who We Work With", href: withBasePath("/#who-we-work-with") },
@@ -483,6 +487,15 @@ export const trainingFormats: TrainingFormat[] = [
 
 export const trainingVideos: TrainingVideo[] = [
   {
+    title: "Creating FAIR Workflows with Agentic AI",
+    source: "Dean Summers",
+    url: "https://youtu.be/2LVGWiQ2TWs",
+    youtubeId: "2LVGWiQ2TWs",
+    date: "March 17, 2026",
+    summary:
+      "A practical session on using agentic AI to support FAIR workflows, with an emphasis on reproducibility, reusable process design, and open-science delivery.",
+  },
+  {
     title: "FAIR and Open Science in Action An Introduction to EarthCODE - BiDS'25",
     source: "Big Data From Space",
     url: "https://www.youtube.com/watch?v=sLcdFd_iTLg",
@@ -538,19 +551,3 @@ export const trainingEvents: TrainingEvent[] = [
     status: "past",
   },
 ];
-
-export const trainingComingSoonCourse: TrainingComingSoonCourse = {
-  label: "Coming soon",
-  title: "Comprehensive Geo-spatial Course",
-  summary:
-    "Lampata is developing a deeper course focused on modern GIS, geo-spatial workflows, and earth observation tooling for data science and analysis teams.",
-  audience:
-    "Designed for analysts, researchers, and technical teams who want a fuller learning path than a single workshop can provide.",
-  format: "Planned as a structured multi-session course with practical examples and applied exercises.",
-  focusAreas: [
-    "Modern GIS foundations for analysis and delivery",
-    "Geo-spatial data science workflows and practical tooling",
-    "Earth observation data, methods, and interpretation",
-    "Applied analysis patterns for real project work",
-  ],
-};

@@ -18,6 +18,31 @@ like papers krasen, events me, etc.. etc... etc..
 
 - fix up training page
 
+
+- spatial data science - use that 
+
+
+- add something like:
+Lampata’s Holistic Approach to GeoSpatial Solutions Architecture slide
+
+- add something like our stack slide
+
+
+- add something like the about us slide
+
+- use our real case studies and have a little slider thing
+
+
+- research list somewhere
+
+- certifications as well on training page
+
+
+- news about us section? 
+http://eo4society.esa.int/2025/10/13/earthcode-welcomes-new-platforms-and-community-engagement-initiatives/ 
+
+https://telespazio.co.uk/en/news-and-stories-detail/-/detail/telespazio-uk-completes-first-best-practice-to-onboard-workstreams-for-earthcode-project
+
 -----
 
   # Geospatial Company Website

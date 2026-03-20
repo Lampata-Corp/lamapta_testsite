@@ -7,8 +7,8 @@ import { TrustStrip } from "./TrustStrip";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white px-6 pb-24 pt-32 md:pt-40">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10">
+    <section className="relative overflow-hidden bg-white px-6 pb-20 pt-28 md:pt-36">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-8">
 
         {/* Left column */}
         <div>
@@ -26,7 +26,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.08 }}
-            className="mt-7 max-w-lg text-lg leading-8 text-[#00458b]/70 md:text-xl"
+            className="mt-6 max-w-lg text-lg leading-8 text-[#00458b]/70 md:text-xl"
           >
             Lampata helps space agencies, research institutions, sustainability
             analysts, and enterprises work with satellite imagery, aerial footage,
@@ -37,7 +37,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.16 }}
-            className="mt-9 flex flex-wrap gap-4"
+            className="mt-8 flex flex-wrap gap-4"
           >
             <a
               href="#contact"
@@ -59,7 +59,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.24 }}
-            className="mt-12 grid grid-cols-3 gap-6 border-t border-[#00458b]/10 pt-8"
+            className="mt-10 grid grid-cols-3 gap-5 border-t border-[#00458b]/10 pt-6"
           >
             {heroMetrics.map((metric) => (
               <div key={metric.label}>
@@ -73,7 +73,7 @@ export function Hero() {
             ))}
           </motion.div>
 
-          <TrustStrip className="mt-8 border-t border-[#00458b]/8 pt-6" />
+          <TrustStrip className="mt-6 border-t border-[#00458b]/8 pt-5" />
         </div>
 
         {/* Right column — image with yellow offset frame */}
@@ -81,7 +81,7 @@ export function Hero() {
           initial={{ opacity: 0, x: 24 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.65, delay: 0.2 }}
-          className="relative lg:pt-5"
+          className="relative lg:pt-4"
         >
           {/* Yellow frame — peeks out top-right, only visible on desktop */}
           <div className="brand-gold-fill absolute right-0 top-0 hidden h-[80%] w-[84%] rounded-[1rem] lg:block" />
@@ -91,7 +91,7 @@ export function Hero() {
             <ImageWithFallback
               src={heroImages.primary}
               alt="Satellite earth observation imagery"
-              className="h-[520px] w-full object-cover md:h-[600px]"
+              className="h-[500px] w-full object-cover md:h-[580px]"
             />
           </div>
         </motion.div>
