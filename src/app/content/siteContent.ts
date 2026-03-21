@@ -59,11 +59,11 @@ export interface OpenScienceItem {
   details: string[];
 }
 
-export interface ProcessStep {
-  step: string;
+export interface EarthcodeSectionContent {
+  eyebrow: string;
   title: string;
   description: string;
-  deliverable: string;
+  leadership: string;
 }
 
 export interface TrainingTrack {
@@ -133,6 +133,15 @@ export const heroImages = {
 export const audienceFeatureImage =
   "https://images.unsplash.com/photo-1722083854891-7324e80ad2ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
 
+export const audienceSignals = [
+  "Earth observation",
+  "Remote sensing",
+  "Aerial imagery",
+  "Mobility data",
+  "Building footprints",
+  "Geo-spatial engineering",
+];
+
 export const heroMetrics: HeroMetric[] = [
   {
     label: "Signal sources",
@@ -171,44 +180,40 @@ export const audienceSegments: AudienceSegment[] = [
     icon: "agency",
     title: "Space agencies",
     summary:
-      "Design mission pilots, earth observation workflows, and analyst tooling that can move from research into operations.",
+      "Mission pilots, earth observation workflows, and analyst tooling built to move into operations.",
     outcomes: [
-      "Operational pipelines for imagery and derived layers",
-      "Reusable evaluation frameworks for model confidence",
-      "Delivery formats that support analysts and partner teams",
+      "Operational imagery pipelines",
+      "Confidence-aware analyst outputs",
     ],
   },
   {
     icon: "research",
     title: "Research institutions",
     summary:
-      "Turn methods and datasets into reproducible tooling, benchmarkable experiments, and outputs that travel well beyond a paper or pilot.",
+      "Reproducible tooling and benchmarkable methods that outlast a single paper or pilot.",
     outcomes: [
-      "Versioned data and model workflows",
-      "Reproducible notebooks and method notes",
-      "Deployment paths for prototypes worth operationalizing",
+      "Versioned model workflows",
+      "Prototype-to-production paths",
     ],
   },
   {
     icon: "sustainability",
     title: "Sustainability analysts",
     summary:
-      "Build decision support around land use, climate, mobility, and infrastructure signals with evidence that can be explained to stakeholders.",
+      "Decision support across land use, climate, mobility, and infrastructure with explainable evidence.",
     outcomes: [
-      "Auditable indicators and monitoring layers",
-      "Scenario-ready geospatial intelligence products",
-      "Explainable outputs for policy and ESG reporting",
+      "Auditable monitoring indicators",
+      "Scenario-ready geo-spatial products",
     ],
   },
   {
     icon: "enterprise",
     title: "Enterprises seeking an edge",
     summary:
-      "Translate geo-spatial data into internal intelligence systems that sharpen planning, risk analysis, and product differentiation.",
+      "Geo-spatial intelligence systems for planning, risk, and product differentiation.",
     outcomes: [
-      "Cloud-ready data products and APIs",
-      "Domain-specific models tuned to business questions",
-      "Delivery that supports internal teams after handoff",
+      "Cloud-ready data products",
+      "Models tied to business decisions",
     ],
   },
 ];
@@ -376,36 +381,14 @@ export const openScienceItems: OpenScienceItem[] = [
   },
 ];
 
-export const processSteps: ProcessStep[] = [
-  {
-    step: "01",
-    title: "Discovery",
-    description:
-      "Clarify the decision to support, the geo-spatial signals that matter, and the operational constraints around data, time, and team capacity.",
-    deliverable: "Scoped problem statement and success criteria",
-  },
-  {
-    step: "02",
-    title: "Data audit",
-    description:
-      "Inspect source quality, coverage, metadata, and access patterns to determine what is usable now and what needs engineering work.",
-    deliverable: "Data readiness assessment and technical approach",
-  },
-  {
-    step: "03",
-    title: "Prototype",
-    description:
-      "Build and evaluate the model, workflow, or product slice that proves the idea in a way stakeholders can judge quickly.",
-    deliverable: "Working prototype with evidence, QA, and review notes",
-  },
-  {
-    step: "04",
-    title: "Production or handoff",
-    description:
-      "Harden the pipeline, document the method, and transfer enough context for your team to operate, extend, or govern the outcome.",
-    deliverable: "Operational workflow, documentation, and handover plan",
-  },
-];
+export const earthcodeSection: EarthcodeSectionContent = {
+  eyebrow: "EarthCODE",
+  title: "Making earth observation science more open, reusable, and easier to build on.",
+  description:
+    "EarthCODE is part of ESA's open-science mission for earth observation, built to help data, workflows, and results become more FAIR, collaborative, and durable across the research community.",
+  leadership:
+    "Lampata is helping lead that mission into practice by building momentum around the platform, shaping how teams onboard to it, and turning the open-science ambition into something researchers can actually use.",
+};
 
 export const contactChecklist = [
   "A concise statement of the question you are trying to answer",

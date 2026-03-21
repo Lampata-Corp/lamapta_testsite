@@ -137,6 +137,7 @@
     @apply bg-background text-foreground antialiased;
     font-family: var(--site-font-sans);
     background-color: var(--background);
+    overflow-x: hidden;
   }
 
   ::selection {
@@ -206,6 +207,7 @@
   .site-shell {
     position: relative;
     isolation: isolate;
+    overflow-x: clip;
   }
 
   .font-display {
@@ -412,6 +414,17 @@
     transform: translate(-50%, -50%);
   }
 
+  .earthcode-section {
+    position: relative;
+    overflow: visible;
+    background: #f9fafb;
+  }
+
+  .earthcode-section::before {
+    content: none;
+    pointer-events: none;
+  }
+
   .case-studies-reference {
     position: relative;
     overflow: hidden;
@@ -423,58 +436,16 @@
     content: "";
     position: absolute;
     inset: 0;
+    z-index: 1;
     background-image: radial-gradient(circle, rgba(0, 69, 139, 0.04) 1px, transparent 1px);
     background-size: 32px 32px;
   }
 
   .case-studies-inner {
     position: relative;
+    z-index: 2;
     max-width: 1280px;
     margin: 0 auto;
-  }
-
-  .case-section-header {
-    margin-bottom: clamp(3rem, 5vw, 5rem);
-  }
-
-  .case-section-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 1rem;
-    font-family: "Inter", sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #00458b;
-  }
-
-  .case-section-label::before {
-    content: "";
-    display: block;
-    width: 24px;
-    height: 2px;
-    border-radius: 2px;
-    background: var(--brand-gold-strong);
-  }
-
-  .case-section-header h2 {
-    margin-bottom: 1rem;
-    font-family: "Space Grotesk", sans-serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 700;
-    line-height: 1.15;
-    letter-spacing: -0.025em;
-    color: #111827;
-  }
-
-  .case-section-header p {
-    max-width: 560px;
-    font-family: "Inter", sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.75;
-    color: #4b5563;
   }
 
   .cs-grid {
@@ -594,7 +565,7 @@
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(8px);
     color: #ffffff;
-    font-family: "Inter", sans-serif;
+    font-family: var(--site-font-sans);
     font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -609,9 +580,10 @@
     border-radius: 8px;
     background: var(--brand-gold-max);
     color: #002f61;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: var(--site-font-display);
     font-size: 0.85rem;
     font-weight: 700;
+    letter-spacing: -0.03em;
     padding: 5px 12px;
   }
 
@@ -624,20 +596,21 @@
 
   .cs-body h3 {
     margin-bottom: 0.75rem;
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #111827;
-    letter-spacing: -0.015em;
+    font-family: var(--site-font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--foreground);
+    letter-spacing: -0.04em;
   }
 
   .cs-body p {
     margin-bottom: 1.25rem;
     flex: 1;
-    font-family: "Inter", sans-serif;
-    font-size: 0.9rem;
+    font-family: var(--site-font-sans);
+    font-size: 0.95rem;
     line-height: 1.75;
-    color: #4b5563;
+    color: var(--muted-foreground);
   }
 
   .cs-outcomes {
@@ -651,8 +624,8 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    color: #00458b;
-    font-family: "Inter", sans-serif;
+    color: var(--foreground);
+    font-family: var(--site-font-sans);
     font-size: 0.8rem;
     font-weight: 600;
   }
@@ -668,8 +641,8 @@
     gap: 10px;
     padding-top: 1rem;
     border-top: 1px solid #f3f4f6;
-    color: #9ca3af;
-    font-family: "Inter", sans-serif;
+    color: rgba(0, 69, 139, 0.6);
+    font-family: var(--site-font-sans);
     font-size: 0.82rem;
   }
 

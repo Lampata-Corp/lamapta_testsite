@@ -31,7 +31,7 @@ Lampata’s Holistic Approach to GeoSpatial Solutions Architecture slide
 - add something like the about us slide
 
 - use our real case studies and have a little slider thing
-
+--- OGC Agents, Antarctica, Urban Cities, TPZ, EarthCODE Mobility Data, Real-Estate
 
 - research list somewhere
 

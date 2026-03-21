@@ -2,8 +2,8 @@ import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { AudienceSection } from "./components/AudienceSection";
 import { CaseStudies } from "./components/CaseStudies";
+import { EarthcodeSection } from "./components/EarthcodeSection";
 import { OpenScience } from "./components/OpenScience";
-import { HowWeWork } from "./components/HowWeWork";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 
@@ -15,8 +15,8 @@ export default function App() {
         <Hero />
         <AudienceSection />
         <CaseStudies />
+        <EarthcodeSection />
         <OpenScience />
-        <HowWeWork />
         <Contact />
       </main>
       <Footer />

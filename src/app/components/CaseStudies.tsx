@@ -1,4 +1,6 @@
 import { caseStudies } from "../content/siteContent";
+import { SectionIntro } from "./SectionIntro";
+
 const heatColors = [
   "#012753",
   "#013463",
@@ -25,18 +27,12 @@ export function CaseStudies() {
   return (
     <section className="section case-studies-reference" id="case-studies">
       <div className="case-studies-inner">
-        <div className="case-section-header">
-          <div className="case-section-label">Case Studies</div>
-          <h2>
-            Real impact.
-            <br />
-            Measurable outcomes.
-          </h2>
-          <p>
-            From urban resilience to conservation to global logistics — here's how our
-            geospatial AI work creates change at scale.
-          </p>
-        </div>
+        <SectionIntro
+          eyebrow="Case studies"
+          title="Real impact. Measurable outcomes."
+          description="From urban resilience to conservation to global logistics, here is how Lampata's geo-spatial AI work creates change at scale."
+          className="mb-14"
+        />
 
         <div className="cs-grid">
           {caseStudies.map((study) => (

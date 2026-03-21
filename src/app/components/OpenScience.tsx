@@ -15,17 +15,47 @@ const iconMap = {
 export function OpenScience() {
   const ref = useRef<HTMLElement | null>(null);
   const isInView = useInView(ref, { once: true, margin: "-120px" });
+  const radarHref = withBasePath("/earth-observation-tech-radar/");
 
   return (
     <section id="open-science" ref={ref} className="bg-white px-6 py-24">
       <div className="mx-auto max-w-7xl">
-        <SectionIntro
-          eyebrow="Open science & research"
-          title="Open methods are part of the product, not a side note."
-          description="Lampata stands out when the work needs to be explainable, reproducible, and useful to more than one specialist on the client side."
-        />
+        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <SectionIntro
+            eyebrow="Open science & research"
+            title="Open methods are part of the product, not a side note."
+            description="Lampata stands out when the work needs to be explainable, reproducible, and useful to more than one specialist on the client side."
+            className="mb-0"
+          />
 
-        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <motion.a
+            href={radarHref}
+            initial={{ opacity: 0, y: 18 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.45, delay: 0.08 }}
+            className="group relative overflow-hidden rounded-[0.75rem] border border-[#00458b]/10 bg-[linear-gradient(135deg,rgba(245,215,4,0.96),rgba(255,249,191,0.9))] p-6 shadow-[0_28px_60px_-42px_rgba(0,69,139,0.28)] transition-transform duration-300 hover:-translate-y-1"
+          >
+            <div className="absolute inset-y-0 right-0 w-28 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.3),transparent_70%)]" />
+            <div className="relative">
+              <p className="section-eyebrow mb-3 border-l-[#00458b] text-[#00458b]/74">
+                Earth Observation Tech Radar
+              </p>
+              <h3 className="font-display max-w-xl text-[1.85rem] font-semibold leading-[0.98] tracking-[-0.06em] text-[#00458b]">
+                Explore the tools, standards, and practices shaping downstream earth observation work.
+              </h3>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-[#00458b]/76">
+                Browse the radar Lampata maintains to see the open-source ecosystem,
+                interoperability patterns, and delivery practices informing modern geo-spatial teams.
+              </p>
+              <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#00458b] px-5 py-3 text-sm font-semibold text-white transition-colors group-hover:bg-[#00376f]">
+                Explore the Tech Radar
+                <ArrowUpRight className="h-4 w-4" />
+              </span>
+            </div>
+          </motion.a>
+        </div>
+
+        <div className="mt-6 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -63,14 +93,6 @@ export function OpenScience() {
                 </div>
               ))}
             </div>
-
-            <a
-              href={withBasePath("/earth-observation-tech-radar/")}
-              className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[#00458b] transition-opacity hover:opacity-72"
-            >
-              Explore the Earth Observation Tech Radar
-              <ArrowUpRight className="h-4 w-4" />
-            </a>
           </motion.div>
 
           <div className="grid gap-6 sm:grid-cols-2">
