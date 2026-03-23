@@ -6,9 +6,13 @@
 - change the copy on the site
 needs to be me and Krasen
 
-- real case studies
-Big EarthCODE mention, big section needs to be there
-Reference to AI stuff we did for the OGC
+
+
+
+
+- use our real case studies and have a little slider thing
+--- OGC Agents, Antarctica, Urban Cities
+big section on earthcode
 
 
 - add our research 
@@ -30,8 +34,7 @@ Lampata’s Holistic Approach to GeoSpatial Solutions Architecture slide
 
 - add something like the about us slide
 
-- use our real case studies and have a little slider thing
---- OGC Agents, Antarctica, Urban Cities, TPZ, EarthCODE Mobility Data, Real-Estate
+
 
 - research list somewhere
 

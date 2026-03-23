@@ -13,8 +13,9 @@ export function Contact() {
   const isInView = useInView(ref, { once: true, margin: "-120px" });
   const officeLatitude = 52.203402467982464;
   const officeLongitude = 0.13190011440690916;
+  const officeAddress =
+    "Lampata, Wellington House, East Road, Cambridge, England, CB1 1BH";
   const formattedCoordinatePair = `LAT ${officeLatitude.toFixed(6)}° N  |  LON ${officeLongitude.toFixed(6)}° E`;
-  const technicalCoordinatePair = `WGS84 / ${officeLatitude.toFixed(6)}°N, ${officeLongitude.toFixed(6)}°E`;
   const openStreetMapUrl =
     `https://www.openstreetmap.org/?mlat=${officeLatitude}&mlon=${officeLongitude}#map=16/${officeLatitude}/${officeLongitude}`;
   const [formData, setFormData] = useState({
@@ -134,7 +135,7 @@ export function Contact() {
                     Office
                   </p>
                   <p className="mt-1 font-mono text-[0.94rem] tracking-[0.08em] text-[#00458b]/78">
-                    {technicalCoordinatePair}
+                    {officeAddress}
                   </p>
                 </div>
               </div>

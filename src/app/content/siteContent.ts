@@ -32,11 +32,11 @@ export interface CapabilityPillar {
 }
 
 export interface CaseStudy {
-  visual: "response" | "footprint" | "mobility";
+  visual: "ogc" | "urban" | "antarctica";
   badge: string;
   metric: string;
   title: string;
-  description: string;
+  description: string[];
   outcomes: string[];
   client: string;
 }
@@ -57,6 +57,15 @@ export interface OpenScienceItem {
   title: string;
   description: string;
   details: string[];
+}
+
+export interface Publication {
+  title: string;
+  venue: string;
+  year: number;
+  kind: "Journal" | "Dataset" | "Conference" | "Report" | "Thesis";
+  href?: string;
+  summary: string;
 }
 
 export interface EarthcodeSectionContent {
@@ -262,46 +271,40 @@ export const capabilityPillars: CapabilityPillar[] = [
 
 export const caseStudies: CaseStudy[] = [
   {
-    visual: "response",
-    badge: "Thermal Analysis",
-    metric: "−3.2°C avg reduction",
-    title: "Urban Heat Island Mapping — Amsterdam Metropolitan Area",
-    description:
-      "Working with the City of Amsterdam's climate adaptation unit, we developed a high-resolution thermal intelligence platform combining Landsat-9 TIRS and Copernicus Sentinel-3 LST data with aerial LiDAR canopy maps. The system identifies neighbourhood-level heat vulnerability at 10m resolution, enabling targeted urban greening investment.",
-    outcomes: [
-      "92% model accuracy",
-      "4× faster mapping",
-      "−3.2°C hotspots",
+    visual: "ogc",
+    badge: "Agentic AI",
+    metric: "Open Geospatial Consortium",
+    title: "GeoAI Reusable Workflows for the OGC OSPD",
+    description: [
+      "Lampata built an agentic AI system to package research code into re-executable, containerised workflows and generate OGC-compliant metadata across geospatial tools covering coastal vulnerability, flood estimation, and sea ice risk.",
+      "A neuro-symbolic approach maps each workflow's execution graph before generating packages and metadata, preventing hallucinations and producing output that is containerised, OGC-validated, and ready to reuse.",
     ],
-    client: "Amsterdam Climate Office & TU Delft Urban Lab · 2024",
+    outcomes: ["OGC-validated", "Agentic AI", "FAIR Workflows"],
+    client: "Applied research · AI engineering · Open science",
   },
   {
-    visual: "footprint",
-    badge: "Change Detection",
-    metric: "98.4% detection rate",
-    title: "Deforestation Monitoring System — Borneo, Indonesia",
-    description:
-      "Deployed a near-real-time forest loss detection system for a major conservation NGO operating across 2.3 million hectares of protected rainforest in Kalimantan. Using multi-temporal Sentinel-2 composites and a custom U-Net architecture, our model flags deforestation events within 48 hours of satellite overpass, enabling rapid ranger response.",
-    outcomes: [
-      "98.4% detection",
-      "48h alert latency",
-      "−67% response time",
+    visual: "urban",
+    badge: "Urban Analytics",
+    metric: "European Union",
+    title: "Urban Analytics for the European Union",
+    description: [
+      "Lampata used AI and Earth Observation data to analyse and map urban development across Europe, producing a classification layer that works from city block to continental scale.",
+      "The work supports sustainable urban planning and policy-making across the European Union, turning fragmented national datasets into a consistent evidence base.",
     ],
-    client: "Borneo Conservation Trust & ESA-funded Initiative · 2023–2024",
+    outcomes: ["EU-scale", "Policy-ready", "AI + EO"],
+    client: "Earth observation · AI classification · Urban policy",
   },
   {
-    visual: "mobility",
-    badge: "Logistics Intelligence",
-    metric: "$14M annual savings",
-    title: "Port Vessel & Cargo Optimisation — Global Shipping Enterprise",
-    description:
-      "Partnered with a top-10 global container shipping operator to build a vessel movement intelligence platform. Combining AIS transponder feeds, SAR satellite vessel detection, and port infrastructure digital twins, we developed a predictive berth allocation and yard optimisation engine deployed across 6 major hub ports.",
-    outcomes: [
-      "31% berth efficiency",
-      "$14M annual savings",
-      "−22% idle time",
+    visual: "antarctica",
+    badge: "Geospatial Data Engineering",
+    metric: "ESA Polar Sciences Cluster",
+    title: "Building Ice Data Cubes for the Antarctic",
+    description: [
+      "Lampata built an AI-ready data cube for the polar sciences community, harmonising datasets covering basal melt, ice velocity, calving fronts, subglacial lakes, and more into a single Zarr store.",
+      "By bringing these data together, researchers gained immediate access to data that previously required significant preprocessing.",
     ],
-    client: "Confidential Global Shipping Enterprise · Port ops across 6 continents · 2024",
+    outcomes: ["Zarr data cube", "Analysis-ready", "Polar science"],
+    client: "Earth Sciences · Cloud-native infrastructure · Open science",
   },
 ];
 
@@ -352,6 +355,13 @@ export const proofStories: ProofStory[] = [
 
 export const openScienceItems: OpenScienceItem[] = [
   {
+    icon: "research",
+    title: "Selected publications",
+    description:
+      "Published papers, datasets, and reports back up Lampata's work in mobility data, urban analytics, FAIR workflows, and Earth observation.",
+    details: ["9 research outputs", "EGU 2025", "Population, Space and Place", "Alan Turing report"],
+  },
+  {
     icon: "reproducibility",
     title: "Reproducible by default",
     description:
@@ -372,18 +382,96 @@ export const openScienceItems: OpenScienceItem[] = [
       "Interoperability matters in geo-spatial work, so we design around formats and interfaces that travel well across teams.",
     details: ["Metadata discipline", "OGC-friendly patterns", "Interchangeable outputs"],
   },
+];
+
+export const publications: Publication[] = [
   {
-    icon: "research",
-    title: "Research collaboration mindset",
-    description:
-      "We help turn exploratory work into pilot-ready methods, benchmarkable outputs, and materials that can support publication or adoption.",
-    details: ["Benchmark design", "Pilot studies", "Method notes"],
+    title: "EarthCODE - a FAIR and Open Environment for collaborative research in Earth System Science",
+    venue: "EGU General Assembly",
+    year: 2025,
+    kind: "Conference",
+    href: "https://doi.org/10.5194/egusphere-egu25-7070",
+    summary:
+      "Shows Lampata's direct role in FAIR, open, and collaborative Earth observation infrastructure rather than treating open science as a side note.",
+  },
+  {
+    title: "Advancing Cloud-Native Data Analysis and Publishing with Pangeo Tools in EarthCODE",
+    venue: "EGU General Assembly",
+    year: 2025,
+    kind: "Conference",
+    href: "https://doi.org/10.5194/egusphere-egu25-21279",
+    summary:
+      "Connects Lampata's EarthCODE work to cloud-native analysis, publishing workflows, and the Pangeo tooling stack shaping modern EO delivery.",
+  },
+  {
+    title:
+      "Urban exodus? Understanding human mobility in Britain during the COVID-19 pandemic using Meta-Facebook data",
+    venue: "Population, Space and Place",
+    year: 2023,
+    kind: "Journal",
+    href: "https://doi.org/10.1002/psp.2637",
+    summary:
+      "Supports Lampata's mobility and urban analytics positioning with a concrete example of large-scale human movement analysis using new data.",
+  },
+  {
+    title: "Functional Signatures in Great Britain: A dataset",
+    venue: "Data in Brief",
+    year: 2022,
+    kind: "Dataset",
+    href: "https://doi.org/10.1016/j.dib.2022.108335",
+    summary:
+      "Gives Lampata a reusable urban function dataset story that fits decision-ready place intelligence and built-environment analysis.",
+  },
+  {
+    title:
+      "Inequalities in experiencing urban functions. An exploration of human digital (geo-)footprints",
+    venue: "Environment and Planning B: Urban Analytics and City Science",
+    year: 2024,
+    kind: "Journal",
+    href: "https://doi.org/10.1177/23998083231208507",
+    summary:
+      "Demonstrates how mobility traces and urban context can be combined to study inequality in how people actually experience cities.",
+  },
+  {
+    title: "Workshop on mobility data in urban science - Report",
+    venue: "The Alan Turing Institute",
+    year: 2021,
+    kind: "Report",
+    href: "https://www.turing.ac.uk/news/publications/workshop-mobility-data-urban-science-workshop-report",
+    summary:
+      "Shows Lampata's role in convening methodological discussion around mobility data, privacy, bias, and practical urban science use.",
+  },
+  {
+    title: "Characterising urban processes using new forms of data and analysis",
+    venue: "University of Liverpool",
+    year: 2023,
+    kind: "Thesis",
+    summary:
+      "Provides the broader research foundation behind Lampata's urban analytics work and the shift toward new data forms and methods.",
+  },
+  {
+    title: "The productivity effects of polycentricity: A systematic analysis of urban regions in Europe",
+    venue: "Papers in Regional Science",
+    year: 2023,
+    kind: "Journal",
+    href: "https://doi.org/10.1111/pirs.12765",
+    summary:
+      "Adds a stronger regional science and city-systems perspective to Lampata's work on spatial structure, productivity, and polycentric urban regions.",
+  },
+  {
+    title: "Learning Neural Word Salience Scores",
+    venue: "Proceedings of the Seventh Joint Conference on Lexical and Computational Semantics",
+    year: 2018,
+    kind: "Conference",
+    href: "https://doi.org/10.18653/v1/S18-2004",
+    summary:
+      "Signals deeper machine learning experience that underpins present geo-spatial AI work, while remaining secondary to the site's core themes.",
   },
 ];
 
 export const earthcodeSection: EarthcodeSectionContent = {
   eyebrow: "EarthCODE",
-  title: "Making earth observation science more open, reusable, and easier to build on.",
+  title: "Making Earth Observation FAIR and Open",
   description:
     "EarthCODE is part of ESA's open-science mission for earth observation, built to help data, workflows, and results become more FAIR, collaborative, and durable across the research community.",
   leadership:

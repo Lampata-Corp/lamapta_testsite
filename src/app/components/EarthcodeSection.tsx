@@ -11,7 +11,11 @@ export function EarthcodeSection() {
   const isInView = useInView(ref, { once: true, margin: "-120px" });
 
   return (
-    <section id="earthcode" ref={ref} className="earthcode-section px-6 py-28 lg:py-32">
+    <section
+      id="earthcode"
+      ref={ref}
+      className="earthcode-section px-6 pb-28 pt-0 lg:pb-32 lg:pt-2"
+    >
       <motion.div
         aria-hidden="true"
         initial={{ x: 140, opacity: 0 }}
@@ -36,23 +40,20 @@ export function EarthcodeSection() {
         }}
       />
 
-      <motion.img
+      <img
         src={earthcodePlanet}
         alt=""
         aria-hidden="true"
-        initial={{ x: 120, y: -24, scale: 0.96, opacity: 0 }}
-        animate={isInView ? { x: 0, y: 0, scale: 1, opacity: 0.14 } : {}}
-        transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-        className="pointer-events-none absolute -right-10 -top-3 z-[1] w-[24rem] max-w-none mix-blend-multiply saturate-[0.82] sm:-right-10 sm:-top-5 sm:w-[35rem] lg:-right-20 lg:-top-[6.5rem] lg:w-[58rem] xl:-right-24 xl:-top-[7.5rem] xl:w-[66rem]"
+        className="pointer-events-none absolute -right-14 -top-9 z-[1] w-[24rem] max-w-none mix-blend-multiply saturate-[0.82] opacity-[0.14] sm:-right-14 sm:-top-11 sm:w-[35rem] lg:-right-24 lg:-top-[9.5rem] lg:w-[58rem] xl:-right-28 xl:-top-[10.5rem] xl:w-[66rem]"
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl">
+      <div className="relative z-10 mx-auto mt-[-1rem] max-w-7xl lg:mt-[-1.5rem]">
         <div className="max-w-4xl pr-4 sm:pr-10 lg:min-h-[31rem] lg:pr-28 xl:pr-40">
           <motion.div
             initial={{ opacity: 0, x: -18 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.45, delay: 0.04 }}
-            className="pt-1"
+            className="pt-0"
           >
             <div className="mb-14 flex max-w-3xl flex-col gap-4">
               <motion.div
