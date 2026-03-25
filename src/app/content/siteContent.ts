@@ -211,9 +211,10 @@ export const trainingRoadmapCourse: TrainingRoadmapCourse = {
 };
 
 export const navItems: NavItem[] = [
-  { label: "Who We Are", href: withBasePath("/#who-we-are") },
+  { label: "About Us", href: withBasePath("/#who-we-are") },
+  { label: "Tech Stack", href: withBasePath("/#tech-stack") },
   { label: "Case Studies", href: withBasePath("/#case-studies") },
-  { label: "Research", href: withBasePath("/#open-science") },
+  { label: "Open Science", href: withBasePath("/#open-science") },
 ];
 
 export const heroProofPoints = [
@@ -250,9 +251,9 @@ export const whoWeAreSignals = [
 
 export const techStackFocus: TechFocusItem[] = [
   {
-    id: "geopandas",
-    label: "GeoPandas",
-    href: "https://geopandas.org/en/stable/",
+    id: "python",
+    label: "Python",
+    href: "https://www.python.org/",
   },
   {
     id: "pangeo",
@@ -275,9 +276,9 @@ export const techStackFocus: TechFocusItem[] = [
     href: "https://docs.xarray.dev/en/stable/",
   },
   {
-    id: "python",
-    label: "Python",
-    href: "https://www.python.org/",
+    id: "geopandas",
+    label: "GeoPandas",
+    href: "https://geopandas.org/en/stable/",
   },
   {
     id: "scikitlearn",

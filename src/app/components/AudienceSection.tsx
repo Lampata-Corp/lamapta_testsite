@@ -1,6 +1,6 @@
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
-import { audienceFeatureImage, whoWeArePillars, whoWeAreSignals } from "../content/siteContent";
+import { audienceFeatureImage, whoWeArePillars } from "../content/siteContent";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { SectionIntro } from "./SectionIntro";
 
@@ -11,22 +11,15 @@ export function AudienceSection() {
   return (
     <section id="who-we-are" ref={ref} className="bg-[#f5f7fa] px-6 py-24">
       <div className="mx-auto max-w-7xl">
-        <SectionIntro
-          eyebrow="Who we are"
-          title="Open geo-spatial transformation, research, training, and delivery in one team."
-          description="Lampata helps organisations build capability they keep: open earth-observation workflows, owned infrastructure, research-led methods, and products designed to live beyond a pilot."
-          className="mb-12"
-        />
-
-        <div className="grid gap-6 lg:grid-cols-[0.96fr_1.04fr] lg:items-stretch">
+        <div className="grid gap-6 lg:grid-cols-[1.02fr_0.98fr] lg:grid-rows-[auto_1fr] lg:items-stretch">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.45 }}
-            className="h-full"
+            className="order-2 h-full lg:order-none lg:col-start-1 lg:row-span-2"
           >
             <div className="panel-surface h-full overflow-hidden rounded-[0.75rem]">
-              <div className="grid h-full lg:grid-rows-[0.48fr_0.52fr]">
+              <div className="grid h-full lg:grid-rows-[0.62fr_0.38fr]">
                 <ImageWithFallback
                   src={audienceFeatureImage}
                   alt="Earth observation imagery from space"
@@ -43,19 +36,21 @@ export function AudienceSection() {
                     systems across data, infrastructure, applications, and delivery
                     workflows.
                   </p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {whoWeAreSignals.map((signal) => (
-                      <span key={signal} className="tag-mono text-[#00458b]/82">
-                        {signal}
-                      </span>
-                    ))}
-                  </div>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:h-full lg:grid-cols-2 lg:grid-rows-2 lg:auto-rows-fr">
+          <div className="order-1 lg:order-none lg:col-start-2 lg:row-start-1">
+            <SectionIntro
+              eyebrow="About us"
+              title="Helping you build capability that lasts."
+              align="right"
+              className="mb-0"
+            />
+          </div>
+
+          <div className="order-3 grid gap-5 sm:grid-cols-2 lg:order-none lg:col-start-2 lg:row-start-2 lg:h-full lg:grid-cols-2 lg:grid-rows-2 lg:auto-rows-fr">
             {whoWeArePillars.map((pillar, index) => (
               <motion.article
                 key={pillar.title}
@@ -69,13 +64,6 @@ export function AudienceSection() {
                   {pillar.title}
                 </h3>
                 <p className="mt-4 text-sm leading-7 text-[#00458b]/76">{pillar.description}</p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {pillar.details.map((detail) => (
-                    <span key={detail} className="tag-mono text-[#00458b]/82">
-                      {detail}
-                    </span>
-                  ))}
-                </div>
               </motion.article>
             ))}
           </div>

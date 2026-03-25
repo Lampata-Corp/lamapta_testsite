@@ -81,7 +81,7 @@ const techLogoClassMap = {
   azure: "max-h-[6.15rem] sm:max-h-[7.3rem]",
   dask: "max-h-[6.15rem] sm:max-h-[7.3rem]",
   duckdb: "max-h-[6.15rem] sm:max-h-[7.3rem]",
-  geopandas: "max-h-[8.95rem] sm:max-h-[10.45rem]",
+  geopandas: "max-h-[12rem] sm:max-h-[14rem]",
   jupyterhub: "max-h-[6.8rem] sm:max-h-[8rem]",
   kubernetes: "max-h-[6.7rem] sm:max-h-[7.85rem]",
   leaflet: "max-h-[6.15rem] sm:max-h-[7.3rem]",
@@ -100,36 +100,7 @@ export function TechStackSection() {
   return (
     <section id="tech-stack" ref={ref} className="bg-white px-6 py-24">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start xl:grid-cols-[0.92fr_1.08fr]">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.45 }}
-            className="lg:pr-8 lg:pt-4 xl:pt-5"
-          >
-            <div className="grid grid-cols-2 gap-x-8 gap-y-7 sm:grid-cols-3 sm:gap-x-9 sm:gap-y-8 lg:grid-cols-2 xl:grid-cols-3">
-              {techStackFocus.map((tech) => (
-                <a
-                  key={tech.id}
-                  href={tech.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={tech.label}
-                  className="group inline-flex min-w-0 items-center justify-center"
-                >
-                  <div className="flex h-[8.45rem] items-center justify-center sm:h-[9.7rem]">
-                    <img
-                      src={techLogoMap[tech.id]}
-                      alt={`${tech.label} logo`}
-                      loading="lazy"
-                      className={`w-auto max-w-full object-contain transition duration-200 group-hover:-translate-y-0.5 ${techLogoClassMap[tech.id]}`}
-                    />
-                  </div>
-                </a>
-              ))}
-            </div>
-          </motion.div>
-
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start xl:grid-cols-[1.08fr_0.92fr]">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -139,6 +110,7 @@ export function TechStackSection() {
               eyebrow={techStackSection.eyebrow}
               title={techStackSection.title}
               description={techStackSection.description}
+              align="left"
               className="mb-3"
             />
 
@@ -190,22 +162,22 @@ export function TechStackSection() {
               <DialogTrigger asChild>
                 <button
                   type="button"
-                  className="group mt-6 flex w-full items-center justify-between gap-4 rounded-[1rem] border border-[var(--brand-gold-strong)]/60 bg-[linear-gradient(135deg,rgba(255,195,41,0.2),rgba(255,255,255,0.98)_54%,rgba(0,69,139,0.08))] px-5 py-4 text-left shadow-[0_22px_54px_-34px_rgba(0,69,139,0.42)] transition-transform duration-200 hover:-translate-y-0.5 sm:px-6 sm:py-5"
+                  className="group mt-6 flex w-full items-center justify-between gap-4 rounded-[1rem] border border-[var(--brand-gold-strong)]/60 bg-[linear-gradient(135deg,rgba(255,195,41,0.2),rgba(255,255,255,0.98)_54%,rgba(0,69,139,0.08))] px-5 py-4 text-left shadow-[0_22px_54px_-34px_rgba(0,69,139,0.42)] ring-1 ring-transparent transition-all duration-250 hover:-translate-y-1.5 hover:scale-[1.01] hover:border-[#00458b]/32 hover:bg-[linear-gradient(135deg,rgba(255,195,41,0.34),rgba(255,255,255,0.98)_46%,rgba(0,69,139,0.14))] hover:shadow-[0_34px_80px_-34px_rgba(0,69,139,0.5)] hover:ring-[#00458b]/10 sm:px-6 sm:py-5"
                 >
                   <div className="min-w-0">
-                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#00458b]/62">
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#00458b]/62 transition-colors duration-200 group-hover:text-[#00458b]/82">
                       Full stack view
                     </p>
-                    <p className="mt-1 font-display text-[1.2rem] leading-tight tracking-[-0.05em] text-[#00458b] sm:text-[1.45rem]">
+                    <p className="mt-1 font-display text-[1.2rem] leading-tight tracking-[-0.05em] text-[#00458b] transition-colors duration-200 group-hover:text-[#00376f] sm:text-[1.45rem]">
                       {techStackSection.ctaLabel}
                     </p>
-                    <p className="mt-1 max-w-2xl text-sm leading-6 text-[#00458b]/74">
+                    <p className="mt-1 max-w-2xl text-sm leading-6 text-[#00458b]/74 transition-colors duration-200 group-hover:text-[#00458b]/86">
                       Open the full Lampata stack across data platforms, analytics, APIs,
                       applications, and infrastructure.
                     </p>
                   </div>
 
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#00458b] text-white transition duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#00458b] text-white shadow-[0_18px_36px_-24px_rgba(0,69,139,0.55)] transition-all duration-250 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:scale-110 group-hover:bg-[var(--brand-gold-strong)] group-hover:text-[#00458b] group-hover:shadow-[0_26px_44px_-20px_rgba(245,215,4,0.72)]">
                     <ArrowUpRight className="h-5 w-5" />
                   </span>
                 </button>
@@ -265,6 +237,35 @@ export function TechStackSection() {
                 </ScrollArea>
               </DialogContent>
             </Dialog>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.45 }}
+            className="lg:pl-8 lg:pt-4 xl:pt-5"
+          >
+            <div className="grid grid-cols-2 gap-x-8 gap-y-7 sm:grid-cols-3 sm:gap-x-9 sm:gap-y-8 lg:grid-cols-2 xl:grid-cols-3">
+              {techStackFocus.map((tech) => (
+                <a
+                  key={tech.id}
+                  href={tech.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={tech.label}
+                  className="group inline-flex min-w-0 items-center justify-center"
+                >
+                  <div className="flex h-[8.45rem] items-center justify-center sm:h-[9.7rem]">
+                    <img
+                      src={techLogoMap[tech.id]}
+                      alt={`${tech.label} logo`}
+                      loading="lazy"
+                      className={`w-auto max-w-full object-contain transition duration-200 group-hover:-translate-y-0.5 ${techLogoClassMap[tech.id]}`}
+                    />
+                  </div>
+                </a>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>

@@ -4,8 +4,6 @@ import { withBasePath } from "../lib/paths";
 import { BrandMark } from "./BrandMark";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="bg-[#00458b]">
       <div className="mx-auto max-w-7xl px-6 py-12">
@@ -62,8 +60,9 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
-          <p className="text-sm text-white/40">
-            © {currentYear} Lampata. All rights reserved.
+          <p className="max-w-5xl text-sm leading-6 text-white/40">
+            © 2020 Lampata LTD. All rights reserved. Company number 12820181.
+            Wellington House, Cambridge, England, CB1 1BH.
           </p>
           <div className="flex flex-wrap items-center gap-4 text-sm text-white/40">
             <a

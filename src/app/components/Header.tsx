@@ -25,7 +25,7 @@ export function Header() {
             <BrandMark satelliteMode="orbit" />
           </a>
 
-          <nav className="hidden items-center gap-7 md:flex">
+          <nav className="hidden items-center gap-5 xl:gap-7 lg:flex">
             {navItems.map((item) => (
               <a
                 key={item.label}
@@ -46,7 +46,7 @@ export function Header() {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="rounded-full border border-[#00458b]/10 p-1.5 text-[#00458b]/82 transition-colors hover:text-[#00458b] md:hidden"
+            className="rounded-full border border-[#00458b]/10 p-1.5 text-[#00458b]/82 transition-colors hover:text-[#00458b] lg:hidden"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -57,7 +57,7 @@ export function Header() {
           <motion.nav
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="panel-surface mt-4 flex flex-col gap-4 rounded-[1.5rem] p-5 md:hidden"
+            className="panel-surface mt-4 flex flex-col gap-4 rounded-[1.5rem] p-5 lg:hidden"
           >
             {navItems.map((item) => (
               <a

@@ -1,6 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
 import { caseStudies } from "../content/siteContent";
-import { SectionIntro } from "./SectionIntro";
 import antarcticaImg from "@/assets/antarctica.png";
 
 function OGCVisual({ badge, metric }: { badge: string; metric: string }) {
@@ -303,12 +302,14 @@ export function CaseStudies() {
   return (
     <section className="section case-studies-reference" id="case-studies">
       <div className="case-studies-inner">
-        <SectionIntro
-          eyebrow="Case studies"
-          title="Real work. Real impact."
-          description="From AI-powered open science to polar data infrastructure, here is how Lampata's geo-spatial work creates lasting value."
-          className="mb-14"
-        />
+        <div className="mb-14">
+          <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
+            <h2 className="section-title max-w-4xl text-balance">Real work. Real impact.</h2>
+            <p className="section-copy">
+              From AI-powered open science to polar data infrastructure, here is how Lampata&apos;s geo-spatial work creates lasting value.
+            </p>
+          </div>
+        </div>
 
         <div className="cs-grid">
           {caseStudies.map((study) => (

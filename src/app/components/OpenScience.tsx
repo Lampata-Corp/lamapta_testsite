@@ -2,7 +2,6 @@ import { motion, useInView } from "motion/react";
 import { ArrowUpRight, Building2, FlaskConical, Landmark, Leaf } from "lucide-react";
 import { useRef } from "react";
 import { audienceSegments, openScienceItems, publications } from "../content/siteContent";
-import { SectionIntro } from "./SectionIntro";
 import {
   Dialog,
   DialogContent,
@@ -29,13 +28,15 @@ export function OpenScience() {
   return (
     <section id="open-science" ref={ref} className="bg-white px-6 py-24">
       <div className="mx-auto max-w-7xl">
-        <div className="max-w-3xl">
-          <SectionIntro
-            eyebrow="Open science & research"
-            title="Open methods are part of the product, not a side note."
-            description="Lampata stands out when the work needs to be explainable, reproducible, and supported by methods that can hold up beyond a single project."
-            className="mb-0"
-          />
+        <div className="mb-0 flex max-w-5xl flex-col gap-4">
+          <span className="section-eyebrow self-start">Open science & research</span>
+          <h2 className="section-title max-w-5xl text-balance text-left">
+            Open methods are part of the product, not a side note.
+          </h2>
+          <p className="section-copy max-w-4xl text-left">
+            Lampata stands out when the work needs to be explainable, reproducible, and
+            supported by methods that can hold up beyond a single project.
+          </p>
         </div>
 
         {researchItem ? (
