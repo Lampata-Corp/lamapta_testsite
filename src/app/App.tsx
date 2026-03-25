@@ -1,6 +1,7 @@
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { AudienceSection } from "./components/AudienceSection";
+import { TechStackSection } from "./components/TechStackSection";
 import { CaseStudies } from "./components/CaseStudies";
 import { EarthcodeSection } from "./components/EarthcodeSection";
 import { OpenScience } from "./components/OpenScience";
@@ -14,6 +15,7 @@ export default function App() {
       <main>
         <Hero />
         <AudienceSection />
+        <TechStackSection />
         <CaseStudies />
         <EarthcodeSection />
         <OpenScience />

@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import { caseStudies } from "../content/siteContent";
 import { SectionIntro } from "./SectionIntro";
 import antarcticaImg from "@/assets/antarctica.png";
@@ -330,6 +331,17 @@ export function CaseStudies() {
                   <div className="cs-client-dot" />
                   {study.client}
                 </div>
+                {study.href ? (
+                  <a
+                    href={study.href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="mt-4 inline-flex items-center gap-2 self-start text-sm font-semibold text-[#00458b] transition-opacity hover:opacity-72"
+                  >
+                    View case study
+                    <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                ) : null}
               </div>
             </article>
           ))}

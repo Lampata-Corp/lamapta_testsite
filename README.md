@@ -6,15 +6,6 @@
 - change the copy on the site
 needs to be me and Krasen
 
-
-
-
-
-- use our real case studies and have a little slider thing
---- OGC Agents, Antarctica, Urban Cities
-big section on earthcode
-
-
 - add our research 
 like papers krasen, events me, etc.. etc... etc..
 
@@ -22,6 +13,7 @@ like papers krasen, events me, etc.. etc... etc..
 
 - fix up training page
 
+- add more case studies from lampata eu website
 
 - spatial data science - use that 
 
@@ -33,8 +25,6 @@ Lampata’s Holistic Approach to GeoSpatial Solutions Architecture slide
 
 
 - add something like the about us slide
-
-
 
 - research list somewhere
 

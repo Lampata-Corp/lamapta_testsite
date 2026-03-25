@@ -23,6 +23,69 @@ export interface AudienceSegment {
   outcomes: string[];
 }
 
+export interface WhoWeArePillar {
+  title: string;
+  description: string;
+  details: string[];
+}
+
+export interface TechFocusItem {
+  id:
+    | "airflow"
+    | "aws"
+    | "geopandas"
+    | "jupyterhub"
+    | "kubernetes"
+    | "pangeo"
+    | "python"
+    | "torchgeo"
+    | "xarray"
+    | "scikitlearn"
+    | "postgis"
+    | "duckdb"
+    | "dask"
+    | "leaflet"
+    | "azure";
+  label: string;
+  href: string;
+}
+
+export interface TechStackCategory {
+  id:
+    | "core"
+    | "raster"
+    | "frontend"
+    | "realtime"
+    | "apis"
+    | "analysis"
+    | "infrastructure"
+    | "devsecops"
+    | "databases"
+    | "warehouse";
+  title: string;
+  description: string;
+  items: string[];
+}
+
+export interface TechStackSectionContent {
+  eyebrow: string;
+  title: string;
+  description: string;
+  ctaLabel: string;
+}
+
+export interface TechStackApproachStep {
+  title: string;
+  description: string;
+  stackLabel: string;
+}
+
+export interface TechStackApproachContent {
+  title: string;
+  description: string;
+  steps: TechStackApproachStep[];
+}
+
 export interface CapabilityPillar {
   icon: "sensing" | "infrastructure" | "delivery";
   title: string;
@@ -36,6 +99,7 @@ export interface CaseStudy {
   badge: string;
   metric: string;
   title: string;
+  href?: string;
   description: string[];
   outcomes: string[];
   client: string;
@@ -73,6 +137,34 @@ export interface EarthcodeSectionContent {
   title: string;
   description: string;
   leadership: string;
+}
+
+export interface PrivacyNoticeListItem {
+  label?: string;
+  text: string;
+  details?: string[];
+}
+
+export interface PrivacyNoticeSection {
+  title: string;
+  paragraphs?: string[];
+  bullets?: string[];
+  bulletsTitle?: string;
+  items?: PrivacyNoticeListItem[];
+  itemsTitle?: string;
+}
+
+export interface PrivacyNoticeContent {
+  eyebrow: string;
+  title: string;
+  effectiveDate: string;
+  intro: string;
+  summary: string[];
+  contact: {
+    telephone: string;
+    email: string;
+  };
+  sections: PrivacyNoticeSection[];
 }
 
 export interface TrainingTrack {
@@ -115,15 +207,13 @@ export const trainingRoadmapCourse: TrainingRoadmapCourse = {
   label: "Flagship roadmap",
   title: "Cloud-Native Geospatial Data Science Roadmap",
   summary:
-    "The roadmap renderer is intentionally small; edit the concepts and technologies in trainingRoadmap.json.",
+    "A structured route through the cloud-native tools, concepts, and delivery patterns that matter in modern geospatial data science.",
 };
 
 export const navItems: NavItem[] = [
-  { label: "Who We Work With", href: withBasePath("/#who-we-work-with") },
+  { label: "Who We Are", href: withBasePath("/#who-we-are") },
   { label: "Case Studies", href: withBasePath("/#case-studies") },
   { label: "Research", href: withBasePath("/#open-science") },
-  { label: "Teaching", href: withBasePath("/training/") },
-  { label: "Tech Radar", href: withBasePath("/earth-observation-tech-radar/") },
 ];
 
 export const heroProofPoints = [
@@ -151,21 +241,109 @@ export const audienceSignals = [
   "Geo-spatial engineering",
 ];
 
+export const whoWeAreSignals = [
+  "Open-source geospatial",
+  "Earth observation",
+  "Research to delivery",
+  "Own your stack",
+];
+
+export const techStackFocus: TechFocusItem[] = [
+  {
+    id: "geopandas",
+    label: "GeoPandas",
+    href: "https://geopandas.org/en/stable/",
+  },
+  {
+    id: "pangeo",
+    label: "Pangeo",
+    href: "https://pangeo.io/",
+  },
+  {
+    id: "torchgeo",
+    label: "TorchGeo",
+    href: "https://torchgeo.readthedocs.io/en/stable/",
+  },
+  {
+    id: "jupyterhub",
+    label: "JupyterHub",
+    href: "https://jupyter.org/hub",
+  },
+  {
+    id: "xarray",
+    label: "Xarray",
+    href: "https://docs.xarray.dev/en/stable/",
+  },
+  {
+    id: "python",
+    label: "Python",
+    href: "https://www.python.org/",
+  },
+  {
+    id: "scikitlearn",
+    label: "Scikit-learn",
+    href: "https://scikit-learn.org/stable/",
+  },
+  {
+    id: "postgis",
+    label: "PostGIS",
+    href: "https://postgis.net/",
+  },
+  {
+    id: "duckdb",
+    label: "DuckDB",
+    href: "https://duckdb.org/",
+  },
+  {
+    id: "dask",
+    label: "Dask",
+    href: "https://docs.dask.org/en/stable/",
+  },
+  {
+    id: "airflow",
+    label: "Airflow",
+    href: "https://airflow.apache.org/",
+  },
+  {
+    id: "leaflet",
+    label: "Leaflet",
+    href: "https://leafletjs.com/",
+  },
+  {
+    id: "aws",
+    label: "AWS",
+    href: "https://aws.amazon.com/",
+  },
+  {
+    id: "kubernetes",
+    label: "Kubernetes",
+    href: "https://kubernetes.io/",
+  },
+  {
+    id: "azure",
+    label: "Azure",
+    href: "https://azure.microsoft.com/",
+  },
+];
+
 export const heroMetrics: HeroMetric[] = [
   {
-    label: "Signal sources",
-    value: "4+ data layers",
-    detail: "Satellite imagery, aerial footage, mobility data, and building footprints.",
+    label: "What we build",
+    value: "Open geo-spatial systems",
+    detail:
+      "Earth observation workflows, data platforms, and decision-ready applications built to be owned and extended.",
   },
   {
-    label: "Delivery mode",
-    value: "Research to production",
-    detail: "Prototype quickly, then harden workflows for operational use.",
+    label: "How we work",
+    value: "Research through delivery",
+    detail:
+      "R&D, engineering, infrastructure, and product thinking combined in one delivery team.",
   },
   {
-    label: "Output shape",
-    value: "Maps, models, decisions",
-    detail: "Briefings, dashboards, QA-ready layers, and documented methods.",
+    label: "What clients keep",
+    value: "Owned capability",
+    detail:
+      "Reusable workflows, training, documentation, and systems your team can run without vendor lock-in.",
   },
 ];
 
@@ -227,6 +405,278 @@ export const audienceSegments: AudienceSegment[] = [
   },
 ];
 
+export const whoWeArePillars: WhoWeArePillar[] = [
+  {
+    title: "Open geospatial transformation",
+    description:
+      "Move away from proprietary geo-spatial dependencies toward open, interoperable tooling where your team owns the workflows, infrastructure, and applications end to end.",
+    details: ["Own your stack", "Open-source migration", "Infrastructure to apps"],
+  },
+  {
+    title: "R&D and research",
+    description:
+      "Turn hard geo-spatial questions into practical research programmes, prototypes, and methods that can lead to papers, platforms, and production delivery.",
+    details: ["Applied R&D", "Prototype to product", "Research-grade methods"],
+  },
+  {
+    title: "Geo-spatial and EO training",
+    description:
+      "Build in-house capability around earth observation, cloud-native geo-spatial tooling, FAIR methods, and the practical delivery patterns teams need to keep moving.",
+    details: ["Workshops", "Capability building", "EO methods"],
+  },
+  {
+    title: "Data engineering and strategy",
+    description:
+      "Design the data architecture, pipelines, and roadmap needed to build your own geo-spatial applications, internal platforms, and decision-ready products.",
+    details: ["Data strategy", "Geo-spatial applications", "Production pipelines"],
+  },
+];
+
+export const techStackSection: TechStackSectionContent = {
+  eyebrow: "Open-source geospatial tech",
+  title: "Experts in open-source geospatial technology.",
+  description:
+    "Lampata works across the full open geo-spatial stack, connecting infrastructure, data, analytics, APIs, and applications rather than treating them as separate projects.",
+  ctaLabel: "Explore Lampata's tech stack",
+};
+
+export const techStackApproach: TechStackApproachContent = {
+  title: "A holistic approach from infrastructure to application.",
+  description:
+    "We design infrastructure, data, processing, services, and products as one connected architecture.",
+  steps: [
+    {
+      title: "APIs",
+      description:
+        "Exposing your data and workflows to the internally and externally to the world in a standardized fashion.",
+      stackLabel: "APIs",
+    },
+    {
+      title: "AI and geospatial analytics",
+      description:
+        "Deploying AI and geospatial analytics for valuable insights and informed decision-making.",
+      stackLabel: "AI & Geospatial Analytics",
+    },
+    {
+      title: "MLOps & DevSecOps workflows",
+      description:
+        "Integrating MLOps and DevSecOps to streamline software and AI development securely.",
+      stackLabel: "MLOps & DevSecOps Workflows",
+    },
+    {
+      title: "Security and governance",
+      description:
+        "Implementing a governance framework for data security and compliance embedded with automation guard-rails and policy as code.",
+      stackLabel: "Security & Governance",
+    },
+    {
+      title: "Data integration planning",
+      description:
+        "Creating a unified data integration layer for efficient data flow, enhancing operational efficiency.",
+      stackLabel: "Data Integration Planning",
+    },
+    {
+      title: "Big data storage",
+      description:
+        "Designing a versatile ELT process and big data lake for comprehensive storage, processing, and analysis of various data types.",
+      stackLabel: "Big Data Storage",
+    },
+    {
+      title: "Infrastructure & platform",
+      description:
+        "Architecting cloud-native environments using Kubernetes for scalable, secure, and reliable geospatial, real-time, AI-driven applications.",
+      stackLabel: "Infrastructure & Platform",
+    },
+  ],
+};
+
+export const techStackCategories: TechStackCategory[] = [
+  {
+    id: "core",
+    title: "Core Geospatial Python",
+    description: "The Python tools that anchor practical vector analysis, modelling, and open geospatial workflows.",
+    items: [
+      "JupyterLab",
+      "Pixi",
+      "pyproj",
+      "GeoPandas",
+      "pyogrio",
+      "Shapely",
+      "pandas",
+      "libpysal",
+      "esda",
+      "pointpats",
+      "h3-py",
+      "contextily",
+      "tobler",
+      "pyinterpolate",
+      "statsmodels",
+      "mgwr",
+      "scikit-learn",
+      "osmnx",
+    ],
+  },
+  {
+    id: "raster",
+    title: "Raster & Cloud-Native EO",
+    description: "The cloud-native raster, imagery, and data-layout tooling behind modern earth observation delivery.",
+    items: [
+      "Xarray",
+      "rioxarray",
+      "Rasterio",
+      "Datashader",
+      "geocube",
+      "xvec",
+      "STAC",
+      "COG",
+      "Zarr",
+      "GeoParquet",
+      "DuckDB",
+      "Dask",
+      "Pangeo ecosystem",
+      "Azure Blob Storage",
+      "Azure Container Apps",
+      "Azure Functions",
+    ],
+  },
+  {
+    id: "frontend",
+    title: "Front-End & Interactive Maps",
+    description: "Interfaces for exploration, decision support, and live operational views.",
+    items: ["Power BI", "Tableau", "Leaflet", "D3.js", "OpenLayers", "React", "Angular"],
+  },
+  {
+    id: "realtime",
+    title: "Real-Time & Event-Driven",
+    description: "Streaming infrastructure for IoT, live feeds, and event-driven geo-spatial systems.",
+    items: ["Kafka", "WebSockets", "Azure Event Hub", "Stream Analytics", "IoT Hub"],
+  },
+  {
+    id: "apis",
+    title: "APIs, Servers & Integration",
+    description: "Open standards, service layers, and integration points for geospatial delivery.",
+    items: [
+      "OGC-compliant APIs",
+      "STAC APIs",
+      "FastAPI",
+      "Flask",
+      "Django",
+      ".NET Core API",
+      "Node.js",
+      "Express.js",
+      "Ruby",
+      "Rails",
+      "NGINX",
+      "GeoServer",
+    ],
+  },
+  {
+    id: "analysis",
+    title: "Analysis & ML",
+    description: "Earth observation analysis, acceleration, and geospatial machine learning.",
+    items: [
+      "CUDA",
+      "OpenGL",
+      "RAPIDS",
+      "C/C++",
+      "Python",
+      "cuDF",
+      "TorchGeo",
+      "Ktorch",
+      "Hugging Face",
+      "Spark",
+      "Kafka",
+      "GDAL",
+      "ArcPy",
+      "Google Earth Engine",
+      "Unity 3D",
+      "QGIS",
+      "GRASS",
+    ],
+  },
+  {
+    id: "infrastructure",
+    title: "Infrastructure & OS",
+    description: "Cloud, containers, orchestration, and operating environments for resilient delivery.",
+    items: [
+      "CentOS / RHEL 9",
+      "Ubuntu",
+      "OpenSUSE",
+      "Azure",
+      "GCP",
+      "OpenStack",
+      "Podman",
+      "Docker",
+      "Kubernetes bare-metal",
+      "OpenShift",
+      "Rancher",
+      "AKS",
+      "EKS",
+    ],
+  },
+  {
+    id: "devsecops",
+    title: "DevSecOps",
+    description: "Security, testing, monitoring, and delivery automation across the platform.",
+    items: [
+      "Ansible",
+      "Terraform",
+      "Qualys",
+      "SonarCloud",
+      "ZAP",
+      "AquaSec",
+      "SELinux",
+      "Azure Security Center",
+      "Prometheus",
+      "Grafana",
+      "Azure DevOps",
+      "GitLab",
+      "Selenium",
+      "Pytest",
+    ],
+  },
+  {
+    id: "databases",
+    title: "Databases & Geo-Databases",
+    description: "Spatial persistence, delivery layers, and query systems for geo-data applications.",
+    items: [
+      "Redis",
+      "Azure Front Door",
+      "PostgreSQL",
+      "PostGIS",
+      "MongoDB",
+      "Cassandra",
+      "Hadoop",
+      "SQL",
+      "SPARQL",
+    ],
+  },
+  {
+    id: "warehouse",
+    title: "Data Persistence & Next-Gen Data Warehouse",
+    description: "Cloud storage, orchestration, and modern geospatial data formats.",
+    items: [
+      "Azure Data Lake",
+      "S3",
+      "Databricks",
+      "Airflow",
+      "BigQuery",
+      "Synapse",
+      "Cortex",
+      "STAC metadata",
+      "GeoTIFF",
+      "GeoArrow",
+      "GeoParquet",
+      "FlatGeobuf",
+      "PMTiles",
+      "COG",
+      "Zarr",
+      "COPC",
+      "RDF"
+    ],
+  },
+];
+
 export const capabilityPillars: CapabilityPillar[] = [
   {
     icon: "sensing",
@@ -275,6 +725,7 @@ export const caseStudies: CaseStudy[] = [
     badge: "Agentic AI",
     metric: "Open Geospatial Consortium",
     title: "GeoAI Reusable Workflows for the OGC OSPD",
+    href: "https://www.ogc.org/initiatives/open-science/",
     description: [
       "Lampata built an agentic AI system to package research code into re-executable, containerised workflows and generate OGC-compliant metadata across geospatial tools covering coastal vulnerability, flood estimation, and sea ice risk.",
       "A neuro-symbolic approach maps each workflow's execution graph before generating packages and metadata, preventing hallucinations and producing output that is containerised, OGC-validated, and ready to reuse.",
@@ -287,6 +738,7 @@ export const caseStudies: CaseStudy[] = [
     badge: "Urban Analytics",
     metric: "European Union",
     title: "Urban Analytics for the European Union",
+    href: "https://urbantaxonomy.org/",
     description: [
       "Lampata used AI and Earth Observation data to analyse and map urban development across Europe, producing a classification layer that works from city block to continental scale.",
       "The work supports sustainable urban planning and policy-making across the European Union, turning fragmented national datasets into a consistent evidence base.",
@@ -299,6 +751,7 @@ export const caseStudies: CaseStudy[] = [
     badge: "Geospatial Data Engineering",
     metric: "ESA Polar Sciences Cluster",
     title: "Building Ice Data Cubes for the Antarctic",
+    href: "https://esa-earthcode.github.io/polar-science-cluster-dashboard/",
     description: [
       "Lampata built an AI-ready data cube for the polar sciences community, harmonising datasets covering basal melt, ice velocity, calving fronts, subglacial lakes, and more into a single Zarr store.",
       "By bringing these data together, researchers gained immediate access to data that previously required significant preprocessing.",
@@ -476,6 +929,200 @@ export const earthcodeSection: EarthcodeSectionContent = {
     "EarthCODE is part of ESA's open-science mission for earth observation, built to help data, workflows, and results become more FAIR, collaborative, and durable across the research community.",
   leadership:
     "Lampata is helping lead that mission into practice by building momentum around the platform, shaping how teams onboard to it, and turning the open-science ambition into something researchers can actually use.",
+};
+
+export const privacyNoticeContent: PrivacyNoticeContent = {
+  eyebrow: "Privacy Notice",
+  title: "Lampata customer privacy notice",
+  effectiveDate: "14 September 2025",
+  intro:
+    "This privacy notice tells you what to expect us to do with your personal information.",
+  summary: [
+    "Contact details",
+    "What information we collect, use, and why",
+    "Lawful bases and data protection rights",
+    "Where we get personal information from",
+    "How long we keep information",
+    "Who we share information with",
+    "How to complain",
+  ],
+  contact: {
+    telephone: "+447842881257",
+    email: "contact+gdpr@lampata.co.uk",
+  },
+  sections: [
+    {
+      title: "What information we collect, use, and why",
+      items: [
+        {
+          label: "To provide and improve products and services for clients",
+          details: [
+            "Names and contact details",
+            "Occupation",
+            "Usage data (including information about how you interact with and use our website, products and services)",
+          ],
+          text: "",
+        },
+        {
+          label: "For the prevention, detection, investigation or prosecution of crimes",
+          details: ["Names and contact information"],
+          text: "",
+        },
+        {
+          label: "For information updates or marketing purposes",
+          details: ["Names and contact details", "Addresses", "IP addresses"],
+          text: "",
+        },
+      ],
+    },
+    {
+      title: "Lawful bases and data protection rights",
+      paragraphs: [
+        "Under UK data protection law, we must have a lawful basis for collecting and using your personal information. There is a list of possible lawful bases in the UK GDPR. You can find out more about lawful bases on the ICO's website.",
+        "Which lawful basis we rely on may affect your data protection rights, which are set out in brief below. You can find out more about your data protection rights and the exemptions which may apply on the ICO's website.",
+        "If you make a request, we must respond to you without undue delay and in any event within one month.",
+        "To make a data protection rights request, please contact us using the contact details at the top of this privacy notice.",
+      ],
+      items: [
+        {
+          label: "Your right of access",
+          text:
+            "You have the right to ask us for copies of your personal information. You can request other information such as details about where we get personal information from and who we share personal information with. There are some exemptions, which means you may not receive all the information you ask for. Read more about the right of access.",
+        },
+        {
+          label: "Your right to rectification",
+          text:
+            "You have the right to ask us to correct or delete personal information you think is inaccurate or incomplete. Read more about the right to rectification.",
+        },
+        {
+          label: "Your right to erasure",
+          text: "You have the right to ask us to delete your personal information. Read more about the right to erasure.",
+        },
+        {
+          label: "Your right to restriction of processing",
+          text:
+            "You have the right to ask us to limit how we can use your personal information. Read more about the right to restriction of processing.",
+        },
+        {
+          label: "Your right to object to processing",
+          text:
+            "You have the right to object to the processing of your personal data. Read more about the right to object to processing.",
+        },
+        {
+          label: "Your right to data portability",
+          text:
+            "You have the right to ask that we transfer the personal information you gave us to another organisation, or to you. Read more about the right to data portability.",
+        },
+        {
+          label: "Your right to withdraw consent",
+          text:
+            "When we use consent as our lawful basis you have the right to withdraw your consent at any time. Read more about the right to withdraw consent.",
+        },
+      ],
+    },
+    {
+      title: "Our lawful bases for the collection and use of your data",
+      paragraphs: [
+        "Our lawful bases for collecting or using personal information to provide and improve products and services for clients are set out below.",
+        "For more information on our use of legitimate interests as a lawful basis you can contact us using the contact details set out above.",
+      ],
+      items: [
+        {
+          label: "To provide and improve products and services for clients: Consent",
+          text:
+            "We have permission from you after we gave you all the relevant information. All of your data protection rights may apply, except the right to object. To be clear, you do have the right to withdraw your consent at any time.",
+        },
+        {
+          label: "To provide and improve products and services for clients: Contract",
+          text:
+            "We have to collect or use the information so we can enter into or carry out a contract with you. All of your data protection rights may apply except the right to object.",
+        },
+        {
+          label: "To provide and improve products and services for clients: Legal obligation",
+          text:
+            "We have to collect or use your information so we can comply with the law. All of your data protection rights may apply, except the right to erasure, the right to object and the right to data portability.",
+        },
+        {
+          label: "To provide and improve products and services for clients: Legitimate interests",
+          text:
+            "We are collecting or using your information because it benefits you, our organisation or someone else, without causing an undue risk of harm to anyone. All of your data protection rights may apply, except the right to portability.",
+          details: [
+            "We process business contact details of client users and prospects to provide service updates and relevant offers about our professional services.",
+            "This is necessary to run and improve our services and is proportionate and expected in a B2B context.",
+            "We rely on legitimate interests and comply with PECR: we email corporate subscribers or use the soft opt-in for existing customers, include an easy unsubscribe in every message, honour objections, and obtain consent where PECR requires it for individuals.",
+          ],
+        },
+        {
+          label: "To provide and improve products and services for clients: Vital interests",
+          text:
+            "Collecting or using the information is needed when someone’s physical or mental health or wellbeing is at urgent or serious risk. This includes an urgent need for life sustaining food, water, clothing or shelter. All of your data protection rights may apply, except the right to object and the right to portability.",
+        },
+        {
+          label: "For the prevention, detection, investigation or prosecution of crimes: Consent",
+          text:
+            "We have permission from you after we gave you all the relevant information. All of your data protection rights may apply, except the right to object. To be clear, you do have the right to withdraw your consent at any time.",
+        },
+        {
+          label: "For information updates or marketing purposes: Consent",
+          text:
+            "We have permission from you after we gave you all the relevant information. All of your data protection rights may apply, except the right to object. To be clear, you do have the right to withdraw your consent at any time.",
+        },
+      ],
+    },
+    {
+      title: "Where we get personal information from",
+      bullets: ["Directly from you", "Marketing Sites"],
+      paragraphs: [
+        "In order to enhance our ability to provide relevant marketing, offers, and services to you and update our records, we may obtain information about you from other sources, such as public databases, joint marketing partners, affiliate programs, data providers, and from other third parties.",
+        "This information includes mailing addresses, job titles, email addresses, phone numbers, intent data (or user behaviour data), Internet Protocol (IP) addresses, social media profiles, social media URLs, and custom profiles, for purposes of targeted advertising and event promotion.",
+      ],
+    },
+    {
+      title: "How long we keep information",
+      paragraphs: [
+        "We keep personal data for the duration of our relationship and for up to three (3) years afterwards, then delete or anonymise it.",
+        "We may retain it longer only if required by law or to establish, exercise, or defend legal claims; otherwise, we remove it sooner when it is no longer needed.",
+      ],
+    },
+    {
+      title: "Who we share information with",
+      itemsTitle: "Data processors",
+      items: [
+        {
+          label: "Google Workspace (Google LLC) — Cloud productivity & storage (SaaS)",
+          text:
+            "Stores and syncs our business documents/files (which may include client contact details or project artefacts) to enable secure collaboration, access control, versioning, and backup.",
+        },
+        {
+          label: "Trello (Atlassian US, Inc.) — Project management & collaboration (SaaS)",
+          text:
+            "Hosts our project boards/cards, comments, and attachments used to deliver client work.",
+        },
+      ],
+      bulletsTitle: "Others we share personal information with",
+      bullets: [
+        "Professional or legal advisors",
+        "Regulatory authorities",
+        "Organisations we’re legally obliged to share personal information with",
+      ],
+    },
+    {
+      title: "How to complain",
+      paragraphs: [
+        "If you have any concerns about our use of your personal data, you can make a complaint to us using the contact details at the top of this privacy notice.",
+        "If you remain unhappy with how we’ve used your data after raising a complaint with us, you can also complain to the ICO.",
+        "The ICO's address:",
+        "Information Commissioner's Office",
+        "Wycliffe House",
+        "Water Lane",
+        "Wilmslow",
+        "Cheshire",
+        "SK9 5AF",
+        "Helpline number: 0303 123 1113.",
+        "Website: https://www.ico.org.uk/make-a-complaint",
+      ],
+    },
+  ],
 };
 
 export const contactChecklist = [

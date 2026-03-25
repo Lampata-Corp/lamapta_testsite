@@ -71,6 +71,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, "index.html"),
+        privacy: path.resolve(__dirname, "privacypolicy/index.html"),
         radar: path.resolve(__dirname, "earth-observation-tech-radar/index.html"),
         training: path.resolve(__dirname, "training/index.html"),
       },

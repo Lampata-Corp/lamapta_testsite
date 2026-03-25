@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { navItems } from "../content/siteContent";
+import { withBasePath } from "../lib/paths";
 import { BrandMark } from "./BrandMark";
 
 export function Footer() {
@@ -64,9 +65,14 @@ export function Footer() {
           <p className="text-sm text-white/40">
             © {currentYear} Lampata. All rights reserved.
           </p>
-          <p className="text-sm text-white/40">
-            Built for light, credible storytelling around geo-spatial research and engineering.
-          </p>
+          <div className="flex flex-wrap items-center gap-4 text-sm text-white/40">
+            <a
+              href={withBasePath("/privacypolicy/")}
+              className="transition-colors hover:text-white/72"
+            >
+              Privacy Policy
+            </a>
+          </div>
         </div>
       </div>
     </footer>
