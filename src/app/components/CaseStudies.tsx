@@ -302,8 +302,8 @@ export function CaseStudies() {
   return (
     <section className="section case-studies-reference" id="case-studies">
       <div className="case-studies-inner">
-        <div className="mb-14">
-          <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
+        <div className="mb-10 md:mb-14">
+          <div className="mx-auto flex max-w-3xl flex-col items-center gap-3 text-center md:gap-4">
             <h2 className="section-title max-w-4xl text-balance">Real work. Real impact.</h2>
             <p className="section-copy">
               From AI-powered open science to polar data infrastructure, here is how Lampata&apos;s geo-spatial work creates lasting value.

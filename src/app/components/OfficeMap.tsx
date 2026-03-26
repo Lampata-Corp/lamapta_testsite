@@ -1,8 +1,30 @@
 import { useEffect, useRef } from "react";
-import maplibregl from "maplibre-gl";
+import maplibregl, { type StyleSpecification } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 
 const officeCoordinates = [0.13190011440690916, 52.203402467982464] as const;
+
+const officeMapStyle: StyleSpecification = {
+  version: 8,
+  sources: {
+    openstreetmap: {
+      type: "raster",
+      tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+      tileSize: 256,
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap contributors</a>',
+    },
+  },
+  layers: [
+    {
+      id: "openstreetmap",
+      type: "raster",
+      source: "openstreetmap",
+      minzoom: 0,
+      maxzoom: 19,
+    },
+  ],
+};
 
 export function OfficeMap() {
   const mapRef = useRef<HTMLDivElement | null>(null);
@@ -15,12 +37,14 @@ export function OfficeMap() {
 
     const map = new maplibregl.Map({
       container: mapRef.current,
-      style: "https://tiles.openfreemap.org/styles/bright",
+      style: officeMapStyle,
       center: officeCoordinates,
       zoom: 13,
+      maxZoom: 19,
       pitch: 0,
       bearing: 0,
       attributionControl: false,
+      renderWorldCopies: false,
     });
 
     map.scrollZoom.enable();

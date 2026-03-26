@@ -50,7 +50,7 @@ export function Contact() {
   }
 
   const mapFallback = (
-    <div className="flex h-full min-h-[24rem] items-center justify-center rounded-[0.9rem] bg-[linear-gradient(145deg,rgba(0,69,139,0.05),rgba(245,215,4,0.08))]">
+    <div className="flex h-full min-h-[16rem] items-center justify-center rounded-[0.9rem] bg-[linear-gradient(145deg,rgba(0,69,139,0.05),rgba(245,215,4,0.08))] sm:min-h-[20rem] lg:min-h-[24rem]">
       <div className="flex items-center gap-3 text-sm font-semibold tracking-[0.12em] text-[#00458b]/58 uppercase">
         <span className="h-2 w-2 rounded-full bg-[#f5d704]/70" />
         Loading map
@@ -59,7 +59,7 @@ export function Contact() {
   );
 
   return (
-    <section id="contact" ref={ref} className="bg-white px-6 py-24">
+    <section id="contact" ref={ref} className="bg-white px-6 py-[4.5rem] md:py-24">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 flex max-w-3xl flex-col gap-4">
           <span className="section-eyebrow">Contact</span>
@@ -71,14 +71,14 @@ export function Contact() {
             initial={{ opacity: 0, y: 18 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.45 }}
-            className="flex min-h-[38rem] flex-col"
+            className="order-2 flex min-h-0 flex-col lg:order-none lg:min-h-[38rem]"
           >
-            <div className="px-6 pb-4 pt-5">
+            <div className="px-4 pb-3 pt-4 sm:px-6 sm:pb-4 sm:pt-5">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#00458b]/58">
                 Office location
               </p>
             </div>
-            <div className="min-h-[28rem] flex-1 overflow-hidden rounded-[1rem] px-3 pb-3">
+            <div className="min-h-[16rem] flex-1 overflow-hidden rounded-[1rem] px-3 pb-3 sm:min-h-[20rem] lg:min-h-[28rem]">
               {isInView ? (
                 <Suspense fallback={mapFallback}>
                   <OfficeMap />
@@ -87,7 +87,7 @@ export function Contact() {
                 mapFallback
               )}
             </div>
-            <div className="flex items-center justify-between gap-4 px-6 py-4">
+            <div className="flex flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6">
               <div className="flex items-center gap-3 text-[#00458b]/78">
                 <MapPin className="h-4 w-4 shrink-0 text-[#00458b]" />
                 <p className="font-mono text-[0.82rem] font-semibold tracking-[0.08em] text-[#00458b]/84">
@@ -110,9 +110,9 @@ export function Contact() {
             initial={{ opacity: 0, y: 18 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.45, delay: 0.08 }}
-            className="flex min-h-[38rem] flex-col rounded-[1.2rem] bg-white p-8 shadow-[0_28px_70px_-52px_rgba(0,69,139,0.26)]"
+            className="order-1 flex min-h-0 flex-col rounded-[1.2rem] bg-white p-5 shadow-[0_28px_70px_-52px_rgba(0,69,139,0.26)] sm:p-6 lg:order-none lg:min-h-[38rem] lg:p-8"
           >
-            <div className="mb-8 space-y-5">
+            <div className="order-2 mb-0 mt-7 space-y-5 border-t border-[#00458b]/8 pt-6 lg:order-none lg:mt-0 lg:mb-8 lg:border-t-0 lg:pt-0">
               <div className="flex items-start gap-3">
                 <Mail className="mt-0.5 h-5 w-5 shrink-0 text-[#00458b]" />
                 <div>
@@ -146,7 +146,7 @@ export function Contact() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.14 }}
               onSubmit={handleSubmit}
-              className="flex flex-1 flex-col"
+              className="order-1 flex flex-1 flex-col lg:order-none"
             >
               <div className="grid gap-5 md:grid-cols-2">
                 <label className="flex flex-col gap-1.5 text-sm text-[#00458b]/80">

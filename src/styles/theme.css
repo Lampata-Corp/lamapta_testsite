@@ -664,8 +664,60 @@
   }
 
   @media (max-width: 767px) {
+    .case-studies-reference {
+      padding: 3.25rem 1rem 4rem;
+    }
+
     .cs-grid {
       grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .cs-visual {
+      height: 210px;
+    }
+
+    .cs-badge {
+      top: 12px;
+      left: 12px;
+      font-size: 0.62rem;
+      padding: 4px 8px;
+    }
+
+    .cs-metric {
+      right: 12px;
+      bottom: 12px;
+      font-size: 0.76rem;
+      padding: 5px 10px;
+    }
+
+    .cs-body {
+      padding: 1rem 1rem 1.1rem;
+    }
+
+    .cs-body h3 {
+      font-size: 0.98rem;
+    }
+
+    .cs-body p {
+      margin-bottom: 0.7rem;
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+
+    .cs-outcomes {
+      gap: 0.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .cs-outcome {
+      padding: 2px 8px;
+      font-size: 0.68rem;
+    }
+
+    .cs-client {
+      padding-top: 0.65rem;
+      font-size: 0.72rem;
     }
   }
 }

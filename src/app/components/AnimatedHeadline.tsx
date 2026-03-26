@@ -116,13 +116,13 @@ export function AnimatedHeadline() {
   }, [headline.phase, headline.cycleCount, shouldReduceMotion]);
 
   return (
-    <span className="grid w-fit max-w-full gap-y-[0.08em] text-[0.9em]">
+    <span className="grid w-fit max-w-full gap-y-[0.1em] text-[0.92em] sm:text-[0.9em]">
       <span className="flex min-w-0 items-baseline gap-x-[0.22em] whitespace-nowrap">
-        <span>From</span>
+        <span className="text-[1.08em] font-semibold tracking-[-0.04em]">From</span>
         <AnimatedWord word={headline.fromWord} reserveWord={RESERVED_FROM_WORD} />
       </span>
       <span className="flex min-w-0 items-baseline gap-x-[0.22em] whitespace-nowrap">
-        <span>To</span>
+        <span className="text-[1.08em] font-semibold tracking-[-0.04em]">To</span>
         <AnimatedWord word={headline.toWord} reserveWord={RESERVED_TO_WORD} />
       </span>
     </span>
