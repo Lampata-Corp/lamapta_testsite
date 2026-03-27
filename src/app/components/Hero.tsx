@@ -52,12 +52,12 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.2 }}
-            className="relative mt-8 md:hidden"
+            className="relative mt-7 md:hidden"
           >
-            <div className="brand-gold-fill absolute right-0 top-0 h-[82%] w-[84%] rounded-[1rem]" />
+            <div className="brand-gold-fill absolute right-0 top-0 h-[72%] w-[76%] rounded-[1rem]" />
             <HeroMapAnimation
-              mode="compact"
-              className="relative z-[1] h-[280px] sm:h-[340px]"
+              mode="mobile"
+              className="relative z-[1] h-[162px] sm:h-[186px]"
             />
           </motion.div>
 

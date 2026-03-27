@@ -350,9 +350,9 @@
 
   .hero-map-logo-shell {
     border: 1px solid rgba(245, 215, 4, 0.4);
-    border-radius: 999px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.68), rgba(232, 243, 255, 0.54));
-    box-shadow: 0 18px 34px -24px rgba(0, 69, 139, 0.34);
+    border-radius: 1.5rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(232, 243, 255, 0.58));
+    box-shadow: 0 18px 34px -24px rgba(0, 69, 139, 0.26);
   }
 
   .hero-map-flash {

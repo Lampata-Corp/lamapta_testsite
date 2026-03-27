@@ -4,7 +4,7 @@ import { cn } from "./ui/utils";
 
 interface HeroMapAnimationProps {
   className?: string;
-  mode?: "full" | "compact";
+  mode?: "full" | "mobile";
 }
 
 interface MapPlate {
@@ -32,26 +32,32 @@ interface MapNode {
   y: number;
 }
 
+interface LowPolyFacet {
+  fill: string;
+  points: string;
+  stroke: string;
+}
+
 const INTRO_EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const CAMBRIDGE_POINT = { x: 356, y: 244 };
 
 const MAP_PLATES: MapPlate[] = [
   {
-    d: "M56 162C104 94 194 52 286 58C364 64 426 104 446 164C468 230 446 304 390 352C330 404 236 428 156 406C90 388 42 336 34 272C28 228 34 194 56 162Z",
+    d: "M52 190L118 122L232 92L328 126L370 204L344 302L272 362L160 386L76 332L48 254Z",
     delay: 0.14,
     fill: "rgba(0, 69, 139, 0.18)",
     offsetY: 24,
     stroke: "rgba(0, 69, 139, 0.28)",
   },
   {
-    d: "M374 98C440 70 520 64 592 76C650 88 694 122 708 176C722 232 706 300 660 348C612 400 540 426 468 420C408 414 354 382 330 330C304 276 310 126 374 98Z",
+    d: "M388 124L486 94L602 114L674 182L662 292L594 370L488 392L396 350L360 268L366 176Z",
     delay: 0.26,
     fill: "rgba(255, 255, 255, 0.34)",
     offsetY: -18,
     stroke: "rgba(0, 69, 139, 0.22)",
   },
   {
-    d: "M130 402C182 374 244 374 294 400C338 424 358 460 348 494C338 530 288 552 224 552C164 552 110 532 82 496C58 466 70 432 130 402Z",
+    d: "M118 422L220 396L300 432L292 502L202 526L116 490L92 448Z",
     delay: 0.38,
     fill: "rgba(245, 215, 4, 0.24)",
     offsetY: 28,
@@ -98,13 +104,13 @@ const GRATICULE_VERTICAL = [
 const ROUTE_LINES: RouteLine[] = [
   {
     color: "rgba(0, 69, 139, 0.92)",
-    d: "M104 188C182 202 272 232 356 244C448 258 540 226 646 136",
+    d: "M96 198C186 218 278 236 356 244C450 254 544 234 640 190",
     delay: 1.2,
     width: 2.8,
   },
   {
     color: "rgba(245, 215, 4, 0.98)",
-    d: "M128 452C222 410 290 352 356 244C426 126 538 90 656 96",
+    d: "M114 446C204 406 286 338 356 244C414 168 506 144 614 156",
     delay: 1.78,
     width: 3.4,
   },
@@ -125,13 +131,59 @@ const ROUTE_LINES: RouteLine[] = [
 ];
 
 const MAP_NODES: MapNode[] = [
-  { delay: 0.02, fill: "#f5d704", radius: 5, stroke: "#00458b", x: 104, y: 188 },
+  { delay: 0.02, fill: "#f5d704", radius: 5, stroke: "#00458b", x: 96, y: 198 },
   { delay: 0.1, fill: "#f5d704", radius: 7, stroke: "#00458b", x: CAMBRIDGE_POINT.x, y: CAMBRIDGE_POINT.y },
-  { delay: 0.18, fill: "#ffffff", radius: 5, stroke: "#00458b", x: 646, y: 136 },
-  { delay: 0.28, fill: "#f5d704", radius: 5, stroke: "#00458b", x: 128, y: 452 },
-  { delay: 0.36, fill: "#ffffff", radius: 5, stroke: "#00458b", x: 656, y: 96 },
+  { delay: 0.18, fill: "#ffffff", radius: 5, stroke: "#00458b", x: 640, y: 190 },
+  { delay: 0.28, fill: "#f5d704", radius: 5, stroke: "#00458b", x: 114, y: 446 },
+  { delay: 0.36, fill: "#ffffff", radius: 5, stroke: "#00458b", x: 614, y: 156 },
   { delay: 0.44, fill: "#f5d704", radius: 5, stroke: "#00458b", x: 642, y: 440 },
   { delay: 0.52, fill: "#ffffff", radius: 5, stroke: "#00458b", x: 646, y: 286 },
+];
+
+const LOW_POLY_MOBILE_FACETS: LowPolyFacet[] = [
+  {
+    points: "36,108 202,54 338,120 226,214 64,198",
+    fill: "rgba(0, 69, 139, 0.06)",
+    stroke: "rgba(0, 69, 139, 0.09)",
+  },
+  {
+    points: "302,86 518,56 662,156 484,246 302,202",
+    fill: "rgba(255, 255, 255, 0.24)",
+    stroke: "rgba(0, 69, 139, 0.07)",
+  },
+  {
+    points: "118,212 314,196 486,238 430,320 176,320 72,276",
+    fill: "rgba(245, 215, 4, 0.055)",
+    stroke: "rgba(245, 215, 4, 0.085)",
+  },
+];
+
+const LOW_POLY_DESKTOP_FACETS: LowPolyFacet[] = [
+  {
+    points: "18,102 184,34 334,114 236,236 56,214",
+    fill: "rgba(0, 69, 139, 0.055)",
+    stroke: "rgba(0, 69, 139, 0.085)",
+  },
+  {
+    points: "244,56 468,18 592,126 392,218 234,156",
+    fill: "rgba(255, 255, 255, 0.24)",
+    stroke: "rgba(0, 69, 139, 0.065)",
+  },
+  {
+    points: "474,48 706,118 658,298 440,248 392,146",
+    fill: "rgba(245, 215, 4, 0.05)",
+    stroke: "rgba(245, 215, 4, 0.08)",
+  },
+  {
+    points: "74,282 286,214 470,320 376,542 104,520 26,392",
+    fill: "rgba(0, 69, 139, 0.042)",
+    stroke: "rgba(0, 69, 139, 0.065)",
+  },
+  {
+    points: "430,256 682,230 706,466 532,542 356,470",
+    fill: "rgba(245, 215, 4, 0.042)",
+    stroke: "rgba(245, 215, 4, 0.065)",
+  },
 ];
 
 export function HeroMapAnimation({
@@ -139,14 +191,189 @@ export function HeroMapAnimation({
   mode = "full",
 }: HeroMapAnimationProps) {
   const shouldReduceMotion = useReducedMotion();
+  const isMobile = mode === "mobile";
   const showIntro = mode === "full" && !shouldReduceMotion;
+  const shouldPulse = !shouldReduceMotion;
   const pace = (value: number) => value * 1.18;
-  const mapPlates = mode === "full" ? MAP_PLATES : MAP_PLATES.slice(0, 3);
-  const coastlineLines = mode === "full" ? COASTLINE_LINES.slice(0, 6) : COASTLINE_LINES.slice(0, 4);
-  const routeLines = mode === "full" ? ROUTE_LINES.slice(0, 3) : ROUTE_LINES.slice(0, 2);
-  const mapNodes = mode === "full" ? MAP_NODES.slice(0, 6) : MAP_NODES.slice(0, 4);
-  const graticuleHorizontal = mode === "full" ? GRATICULE_HORIZONTAL.slice(0, 4) : GRATICULE_HORIZONTAL.slice(0, 3);
-  const graticuleVertical = mode === "full" ? GRATICULE_VERTICAL.slice(0, 3) : GRATICULE_VERTICAL.slice(0, 2);
+  const idlePulseDelay = showIntro ? pace(3.24) : 0.72;
+  const mobilePoint = { x: 382, y: 190 };
+  const mapPlates = MAP_PLATES.slice(0, 3);
+  const coastlineLines = COASTLINE_LINES.slice(0, 5);
+  const routeLines = ROUTE_LINES.slice(0, 2);
+  const mapNodes = MAP_NODES.slice(0, 5);
+  const graticuleHorizontal = GRATICULE_HORIZONTAL.slice(0, 3);
+  const graticuleVertical = GRATICULE_VERTICAL.slice(0, 2);
+  const idlePulse = (delay: number, duration: number) =>
+    shouldPulse
+      ? {
+          delay: idlePulseDelay + delay,
+          duration,
+          ease: "easeInOut" as const,
+          repeat: Infinity,
+        }
+      : undefined;
+
+  if (isMobile) {
+    return (
+      <div
+        aria-hidden="true"
+        className={cn(
+          "hero-map-frame pointer-events-none relative isolate w-full overflow-hidden",
+          className,
+        )}
+      >
+        <div className="hero-map-panel absolute inset-0" />
+        <div className="hero-map-grid absolute inset-0 opacity-14" />
+        <div className="absolute inset-[8%] rounded-[1rem] border border-[#00458b]/10" />
+        <div className="absolute left-[76%] top-[24%] h-[20%] w-[26%] -translate-x-1/2 -translate-y-1/2 rounded-[2rem] bg-[#f5d704]/10 blur-3xl" />
+        <div className="absolute inset-x-0 bottom-0 h-[34%] bg-gradient-to-t from-[#eaf2fb]/98 via-white/20 to-transparent" />
+
+        <svg
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full"
+          focusable="false"
+          viewBox="0 0 720 320"
+        >
+          {LOW_POLY_MOBILE_FACETS.map((facet, index) => (
+            <polygon
+              key={`mobile-facet-${index}`}
+              fill={facet.fill}
+              points={facet.points}
+              stroke={facet.stroke}
+              strokeLinejoin="round"
+              strokeWidth={1}
+            />
+          ))}
+          <path
+            d="M64 92H658"
+            fill="none"
+            stroke="rgba(0, 69, 139, 0.08)"
+            strokeWidth={1}
+          />
+          <path
+            d="M64 160H658"
+            fill="none"
+            stroke="rgba(245, 215, 4, 0.08)"
+            strokeWidth={1}
+          />
+          <path
+            d="M146 58V262"
+            fill="none"
+            stroke="rgba(0, 69, 139, 0.08)"
+            strokeWidth={1}
+          />
+          <path
+            d="M520 58V262"
+            fill="none"
+            stroke="rgba(0, 69, 139, 0.08)"
+            strokeWidth={1}
+          />
+
+          <path
+            d="M104 236C188 224 280 208 388 176C476 150 556 112 620 82"
+            fill="none"
+            stroke="rgba(255, 255, 255, 0.62)"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={4.6}
+          />
+          <path
+            d="M104 236C188 224 280 208 388 176C476 150 556 112 620 82"
+            fill="none"
+            stroke="rgba(245, 215, 4, 0.92)"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2.4}
+          />
+          <path
+            d="M168 122C234 146 306 160 388 176"
+            fill="none"
+            stroke="rgba(0, 69, 139, 0.42)"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.6}
+          />
+
+          <g>
+            <circle
+              cx={mobilePoint.x}
+              cy={mobilePoint.y}
+              r={28}
+              fill="none"
+              stroke="rgba(0, 69, 139, 0.22)"
+              strokeWidth={1.2}
+            />
+            <motion.circle
+              cx={mobilePoint.x}
+              cy={mobilePoint.y}
+              animate={
+                shouldPulse
+                  ? {
+                      opacity: [0.12, 0.24, 0.12],
+                      r: [10, 14, 10],
+                    }
+                  : {
+                      opacity: 0.14,
+                      r: 10,
+                    }
+              }
+              fill="rgba(245, 215, 4, 0.14)"
+              initial={false}
+              stroke="none"
+              transition={idlePulse(0.24, 3.8)}
+            />
+          </g>
+
+          <motion.circle
+            animate={
+              shouldPulse
+                ? {
+                    opacity: [0, 0.24, 0],
+                    r: [4.5, 8.5, 4.5],
+                  }
+                : { opacity: 0, r: 4.5 }
+            }
+            cx="104"
+            cy="236"
+            fill="none"
+            initial={false}
+            stroke="rgba(0, 69, 139, 0.24)"
+            strokeWidth="1"
+            transition={idlePulse(0.08, 3.4)}
+          />
+          <circle cx="104" cy="236" r="4" fill="#00458b" stroke="#ffffff" strokeWidth="1.5" />
+          <motion.circle
+            animate={
+              shouldPulse
+                ? {
+                    opacity: [0, 0.24, 0],
+                    r: [4.5, 8.5, 4.5],
+                  }
+                : { opacity: 0, r: 4.5 }
+            }
+            cx="620"
+            cy="82"
+            fill="none"
+            initial={false}
+            stroke="rgba(0, 69, 139, 0.24)"
+            strokeWidth="1"
+            transition={idlePulse(0.68, 3.6)}
+          />
+          <circle cx="620" cy="82" r="4" fill="#00458b" stroke="#ffffff" strokeWidth="1.5" />
+        </svg>
+
+        <div className="hero-map-vignette absolute inset-0" />
+
+        <div className="absolute inset-0 z-20 flex items-center justify-center px-8">
+          <div className="max-w-[13.5rem] text-center">
+            <p className="font-display text-[1.72rem] font-black leading-[0.92] tracking-[-0.075em] text-[#00458b] [text-shadow:0_1px_0_rgba(255,255,255,0.82)] sm:text-[1.92rem]">
+              Making sense of the real world
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -188,19 +415,7 @@ export function HeroMapAnimation({
         <span className="h-px w-8 bg-[#f5d704]/62" />
       </motion.div>
       <motion.div
-        className="absolute left-1/2 top-1/2 z-[1] h-[46%] w-[54%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#00458b]/20"
-        initial={showIntro ? { opacity: 0, scale: 0.76 } : false}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: pace(1.02), delay: pace(0.82), ease: INTRO_EASE }}
-      />
-      <motion.div
-        className="absolute left-1/2 top-1/2 z-[1] h-[32%] w-[38%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#f5d704]/34"
-        initial={showIntro ? { opacity: 0, scale: 0.82 } : false}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: pace(0.96), delay: pace(0.98), ease: INTRO_EASE }}
-      />
-      <motion.div
-        className="absolute left-1/2 top-1/2 z-[1] h-[44%] w-[46%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#f5d704]/18 blur-3xl"
+        className="absolute left-[46%] top-[43%] z-[1] h-[20%] w-[54%] -translate-x-1/2 -translate-y-1/2 rounded-[2.75rem] bg-[#f5d704]/10 blur-3xl"
         initial={showIntro ? { opacity: 0, scale: 0.72 } : false}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: pace(1.08), delay: pace(1.06), ease: INTRO_EASE }}
@@ -218,6 +433,22 @@ export function HeroMapAnimation({
         focusable="false"
         viewBox="0 0 720 560"
       >
+        <motion.g
+          initial={showIntro ? { opacity: 0 } : false}
+          animate={{ opacity: 1 }}
+          transition={{ duration: pace(0.9), delay: pace(0.18), ease: INTRO_EASE }}
+        >
+          {LOW_POLY_DESKTOP_FACETS.map((facet, index) => (
+            <polygon
+              key={`desktop-facet-${index}`}
+              fill={facet.fill}
+              points={facet.points}
+              stroke={facet.stroke}
+              strokeLinejoin="round"
+              strokeWidth={1}
+            />
+          ))}
+        </motion.g>
         {graticuleHorizontal.map((line, index) => (
           <motion.path
             key={`graticule-h-${index}`}
@@ -285,35 +516,35 @@ export function HeroMapAnimation({
           <circle
             cx={CAMBRIDGE_POINT.x}
             cy={CAMBRIDGE_POINT.y}
-            r={86}
+            r={46}
             fill="none"
-            stroke="rgba(0, 69, 139, 0.14)"
+            stroke="rgba(0, 69, 139, 0.16)"
             strokeWidth={1.2}
           />
           <circle
             cx={CAMBRIDGE_POINT.x}
             cy={CAMBRIDGE_POINT.y}
-            r={52}
+            r={24}
             fill="none"
-            stroke="rgba(245, 215, 4, 0.36)"
+            stroke="rgba(245, 215, 4, 0.34)"
             strokeWidth={1.2}
           />
           <circle
             cx={CAMBRIDGE_POINT.x}
             cy={CAMBRIDGE_POINT.y}
-            r={22}
+            r={10}
             fill="none"
             stroke="rgba(0, 69, 139, 0.42)"
             strokeWidth={1.2}
           />
           <path
-            d={`M${CAMBRIDGE_POINT.x - 108} ${CAMBRIDGE_POINT.y}H${CAMBRIDGE_POINT.x + 108}`}
+            d={`M${CAMBRIDGE_POINT.x - 62} ${CAMBRIDGE_POINT.y}H${CAMBRIDGE_POINT.x + 62}`}
             fill="none"
             stroke="rgba(0, 69, 139, 0.18)"
             strokeWidth={1}
           />
           <path
-            d={`M${CAMBRIDGE_POINT.x} ${CAMBRIDGE_POINT.y - 108}V${CAMBRIDGE_POINT.y + 108}`}
+            d={`M${CAMBRIDGE_POINT.x} ${CAMBRIDGE_POINT.y - 62}V${CAMBRIDGE_POINT.y + 62}`}
             fill="none"
             stroke="rgba(245, 215, 4, 0.26)"
             strokeWidth={1}
@@ -359,6 +590,27 @@ export function HeroMapAnimation({
 
         {mapNodes.map((node, index) => (
           <g key={`node-${index}`}>
+            <motion.circle
+              cx={node.x}
+              cy={node.y}
+              fill="none"
+              initial={showIntro ? { opacity: 0, r: node.radius + 3 } : false}
+              animate={
+                shouldPulse
+                  ? {
+                      opacity: [0, 0.28, 0],
+                      r: [node.radius + 3, node.radius + 12, node.radius + 3],
+                    }
+                  : {
+                      opacity: 0,
+                      r: node.radius + 3,
+                    }
+              }
+              stroke={node.stroke}
+              strokeOpacity={0.24}
+              strokeWidth={1.1}
+              transition={idlePulse(node.delay * 0.55, 3.7 + index * 0.08)}
+            />
             <motion.circle
               cx={node.x}
               cy={node.y}
@@ -412,10 +664,7 @@ export function HeroMapAnimation({
       <div className="hero-map-vignette absolute inset-0" />
 
       <motion.div
-        className={cn(
-          "absolute inset-x-0 z-30 flex justify-center px-8",
-          mode === "full" ? "top-[13%]" : "top-[15%]",
-        )}
+        className="absolute inset-x-0 top-[13%] z-30 flex justify-center px-8"
         initial={showIntro ? { opacity: 0 } : false}
         animate={{ opacity: 1 }}
         transition={{
@@ -424,18 +673,8 @@ export function HeroMapAnimation({
           ease: INTRO_EASE,
         }}
       >
-        <div
-          className={cn(
-            "hero-map-logo-shell w-full",
-            mode === "full" ? "max-w-[22rem] px-7 py-5" : "max-w-[15rem] px-5 py-3.5",
-          )}
-        >
-          <BrandMark
-            className={cn(
-              "mx-auto",
-              mode === "full" ? "max-w-[18.5rem] lg:max-w-[19.5rem]" : "max-w-[12.5rem] sm:max-w-[13.75rem]",
-            )}
-          />
+        <div className="hero-map-logo-shell w-full max-w-[22rem] px-7 py-5">
+          <BrandMark className="mx-auto max-w-[18.5rem] lg:max-w-[19.5rem]" />
         </div>
       </motion.div>
 
