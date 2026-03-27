@@ -223,13 +223,6 @@ export const heroProofPoints = [
   "From rapid pilots to analyst-ready products and production pipelines.",
 ];
 
-export const heroImages = {
-  primary:
-    "https://images.unsplash.com/photo-1722083854891-7324e80ad2ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-  secondary:
-    "https://images.unsplash.com/photo-1736117703416-f260ee174bac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-};
-
 export const audienceFeatureImage =
   "https://images.unsplash.com/photo-1722083854891-7324e80ad2ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
 

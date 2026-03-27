@@ -1,40 +1,25 @@
 # note to self  todo
 
-- create the image stack thing
-----epic - Azha---todo
+v1
+- create the image stack thing ----epic - Azha---todo
+- change the copy on the site -- needs to be me and Krasen
+- add our research - full like papers krasen, events me, etc.. etc... etc..
+- ai optimized bit - agents.txt or something to rank us higher
+- google SEO optimised
 
-- change the copy on the site
-needs to be me and Krasen
-
-- add our research 
-like papers krasen, events me, etc.. etc... etc..
-
-- pss in the presentation from v2 to tweak content
-
-- fix up training page
-
+optional post 1st release or v2:
 - add more case studies from lampata eu website
 
+v2
+- fix up training page
+- events in training?
 - spatial data science - use that 
-
-
-- add something like:
-Lampata’s Holistic Approach to GeoSpatial Solutions Architecture slide
-
-- add something like our stack slide
-
-
+- cookie policy
+- How we use agentic ai in our consulting practice - we use ai not like dummies
+- google analytics integration
 - add something like the about us slide
-
-- research list somewhere
-
 - certifications as well on training page
-
-
-- news about us section? 
-http://eo4society.esa.int/2025/10/13/earthcode-welcomes-new-platforms-and-community-engagement-initiatives/ 
-
-https://telespazio.co.uk/en/news-and-stories-detail/-/detail/telespazio-uk-completes-first-best-practice-to-onboard-workstreams-for-earthcode-project
+- blog and news about us section? http://eo4society.esa.int/2025/10/13/earthcode-welcomes-new-platforms-and-community-engagement-initiatives/; https://telespazio.co.uk/en/news-and-stories-detail/-/detail/telespazio-uk-completes-first-best-practice-to-onboard-workstreams-for-earthcode-project
 
 -----
 
